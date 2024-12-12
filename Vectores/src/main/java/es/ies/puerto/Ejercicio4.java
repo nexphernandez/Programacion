@@ -27,6 +27,9 @@ public class Ejercicio4 {
      */
     public static List<Integer> copiarElementosPares(List<Integer> lista){
         List<Integer> numeros = new ArrayList<>();
+        if (lista.isEmpty() || lista == null) {
+            return numeros;
+        }
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i) % 2 == 0) {
                 numeros.add(lista.get(i)); 
