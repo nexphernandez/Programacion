@@ -14,9 +14,9 @@ import java.util.Vector;
  * Resultado esperado: País: "España". Resultado: true o false.
  */
 public class Ejercicio6 {
-    static Vector<String> numeros = new Vector<>(Arrays.asList("España", "Francia", "Portugal"));
+    static Vector<String> paises = new Vector<>(Arrays.asList("España", "Francia", "Portugal"));
     public static void main(String[] args) {
-        System.out.println(verificarPresenciaElemento(numeros, "España"));
+        System.out.println(verificarPresenciaElemento(paises, "España"));
     }
     /**
      * Funcion que verifica si el elemento ingresado se encuentra en la lista o no

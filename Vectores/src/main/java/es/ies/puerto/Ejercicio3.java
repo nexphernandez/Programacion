@@ -14,11 +14,11 @@ import java.util.Vector;
  * Resultado esperado: Vector antes: [Azul, Amarillo, Verde, Anaranjado]. Vector después: [Verde].
  */
 public class Ejercicio3 {
-    static Vector<String> numeros = new Vector<>(Arrays.asList("Azul", "Amarillo", "Verde", "Anaranjado"));
+    static Vector<String> colores = new Vector<>(Arrays.asList("Azul", "Amarillo", "Verde", "Anaranjado"));
     public static void main(String[] args) {
-        System.out.println(numeros);
-        eliminarPorCondicion(numeros, "A");
-        System.out.println(numeros);
+        System.out.println(colores);
+        eliminarPorCondicion(colores, "A");
+        System.out.println(colores);
     }
     /**
      * Funcion que elimina elementos de una lista por una condicion
