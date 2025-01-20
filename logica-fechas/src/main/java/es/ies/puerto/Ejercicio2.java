@@ -6,6 +6,14 @@ import java.time.Month;
 public class Ejercicio2 {
 
     public static int obtenerDiasDelMes(int anio, Month mes) {
-        return -1;
+        if (mes == null || anio < 1) {
+            return -1;
+        }
+        LocalDate localDate = LocalDate.of(anio, mes.getValue(),1);
+        if (localDate.isLeapYear()) {
+            return 29;
+        }
+        int numMes = localDate.getDayOfMonth();
+        return numMes ;
     }
 }
