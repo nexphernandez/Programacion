@@ -9,11 +9,7 @@ public class Ejercicio2 {
         if (mes == null || anio < 1) {
             return -1;
         }
-        LocalDate localDate = LocalDate.of(anio, mes.getValue(),1);
-        if (localDate.isLeapYear()) {
-            return 29;
-        }
-        int numMes = localDate.getDayOfMonth();
-        return numMes ;
+        LocalDate localDate = LocalDate.of(anio, mes,1);
+        return localDate.lengthOfMonth();
     }
 }

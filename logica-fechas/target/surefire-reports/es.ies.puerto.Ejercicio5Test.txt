@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.Ejercicio5Test
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.115 s <<< FAILURE! -- in es.ies.puerto.Ejercicio5Test
-es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoDiasPositivos -- Time elapsed: 0.010 s <<< FAILURE!
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.273 s <<< FAILURE! -- in es.ies.puerto.Ejercicio5Test
+es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoDiasPositivos -- Time elapsed: 0.022 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Sumando 5 días al 1 de enero de 2023 (domingo) debería dar viernes ==> expected: <FRIDAY> but was: <null>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -14,7 +14,7 @@ org.opentest4j.AssertionFailedError: Sumando 5 días al 1 de enero de 2023 (domi
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoCeroDias -- Time elapsed: 0.001 s <<< FAILURE!
+es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoCeroDias -- Time elapsed: 0.005 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Sumando 0 días al 15 de mayo de 2023 (lunes) debería dar lunes ==> expected: <MONDAY> but was: <null>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -26,7 +26,7 @@ org.opentest4j.AssertionFailedError: Sumando 0 días al 15 de mayo de 2023 (lune
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
-es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoDiasNegativos -- Time elapsed: 0.002 s <<< FAILURE!
+es.ies.puerto.Ejercicio5Test.testObtenerDiaDeLaSemanaEnElFuturoDiasNegativos -- Time elapsed: 0.003 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: Restando 7 días al 10 de enero de 2023 (martes) debería dar martes ==> expected: <TUESDAY> but was: <null>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
