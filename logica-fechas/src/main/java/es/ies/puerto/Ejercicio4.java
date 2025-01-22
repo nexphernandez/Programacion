@@ -5,8 +5,16 @@ import java.time.Month;
 import java.time.MonthDay;
 import java.util.Set;
 import java.util.HashSet;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class Ejercicio4 {
+    /**
+     * Funcion para saber si un dia es festivo nacional
+     * @param fecha fecha para saber si es festivo
+     * @return true/false
+     */
     public static boolean esDiaFestivoNacional(LocalDate fecha) {
         if (fecha == null) {
             return false;

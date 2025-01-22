@@ -6,6 +6,7 @@ import java.time.LocalDate;
 /**
  * Clase del ejercicio 1
  * @author nexphernandez
+ * @version 1.0.0
  */
 
 public class Ejercicio1 {
