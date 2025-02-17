@@ -5,9 +5,9 @@ package es.ies.puerto.file.uno;
  */
 import java.util.List;
 
-import es.ies.puerto.file.OperacionesXml;
 
-public class FileXmlCriatura extends OperacionesXml{
+
+public class FileXmlCriatura extends OperacionesCriaturasXml{
     List<Criatura> criaturas = leerFicheroCriaturas();
 
     /**
@@ -41,12 +41,31 @@ public class FileXmlCriatura extends OperacionesXml{
         }
         return null;
     }
+    /**
+     * Funcion que agrega una criatura en el fichero
+     * @param criatura a aniadir
+     */
     public void addCriatura(Criatura criatura) {
+        criaturas.add(criatura);
+        escribirEnXml(criaturas);
     }
+    
+    /**
+     * Funcion que elimina una criatura del fichero
+     * @param criatura a eliminar
+     */
     public void deleteCriatura(Criatura criatura) {
-
+        criaturas.remove(criatura);
+        escribirEnXml(criaturas);
     }
-    public void updateCriatura(Criatura criatura) {
 
+    /**
+     * Funcion que actualiza los datos de una criatura
+     * @param criatura con los datos actualizados 
+     */
+    public void updateCriatura(Criatura criatura) {
+        int indice = criaturas.indexOf(criatura);
+        criaturas.set(indice, criatura);
+        escribirEnXml(criaturas);
     }
 }

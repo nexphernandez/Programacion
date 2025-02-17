@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <criaturas>
     <criatura>
         <id>DG001</id>
@@ -19,9 +20,9 @@
     </criatura>
     <criatura>
         <id>EL004</id>
-        <nombre>Elfa Nocturna</nombre>
-        <descripcion>Una misteriosa elfa que vive en la oscuridad.</descripcion>
-        <categoria>Elfos</categoria>
+        <nombre>Pegassus</nombre>
+        <descripcion>Caballo magico con alas que puede volar grandes distancias</descripcion>
+        <categoria>Otras Criaturas</categoria>
     </criatura>
     <criatura>
         <id>FN005</id>
