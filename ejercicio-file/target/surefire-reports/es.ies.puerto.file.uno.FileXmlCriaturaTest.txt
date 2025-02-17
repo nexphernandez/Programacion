@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: es.ies.puerto.file.uno.FileXmlCriaturaTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in es.ies.puerto.file.uno.FileXmlCriaturaTest
+es.ies.puerto.file.uno.FileXmlCriaturaTest.obtenerCriaturaTest  Time elapsed: 0.027 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "es.ies.puerto.file.uno.Criatura.getId()" because "critaturaBuscar" is null
+	at es.ies.puerto.file.uno.FileXmlCriaturaTest.obtenerCriaturaTest(FileXmlCriaturaTest.java:41)
+
+es.ies.puerto.file.uno.FileXmlCriaturaTest.actualizarCriatura  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "es.ies.puerto.file.uno.Criatura.setNombre(String)" because "CriaturaActualizar" is null
+	at es.ies.puerto.file.uno.FileXmlCriaturaTest.actualizarCriatura(FileXmlCriaturaTest.java:78)
+
+es.ies.puerto.file.uno.FileXmlCriaturaTest.addDeleteCriaturaTest  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: NO SE HA OBTENIDO LA RESPUESTA ESPERADA ==> expected: <true> but was: <false>
+	at es.ies.puerto.file.uno.FileXmlCriaturaTest.addDeleteCriaturaTest(FileXmlCriaturaTest.java:60)
+
