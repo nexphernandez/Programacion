@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.file.dos.FilePokedexXmlTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in es.ies.puerto.file.dos.FilePokedexXmlTest
-es.ies.puerto.file.dos.FilePokedexXmlTest.actualizarPokemon  Time elapsed: 0.023 s  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in es.ies.puerto.file.dos.FilePokedexXmlTest
+es.ies.puerto.file.dos.FilePokedexXmlTest.actualizarPokemon  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "es.ies.puerto.file.dos.Pokemon.setNombre(String)" because "PokemonActualizar" is null
 	at es.ies.puerto.file.dos.FilePokedexXmlTest.actualizarPokemon(FilePokedexXmlTest.java:77)
 
@@ -14,7 +14,7 @@ es.ies.puerto.file.dos.FilePokedexXmlTest.obtenerPokemosTest  Time elapsed: 0.00
 java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "this.pokemons" is null
 	at es.ies.puerto.file.dos.FilePokedexXmlTest.obtenerPokemosTest(FilePokedexXmlTest.java:29)
 
-es.ies.puerto.file.dos.FilePokedexXmlTest.addDeletePokemonTest  Time elapsed: 0.002 s  <<< ERROR!
+es.ies.puerto.file.dos.FilePokedexXmlTest.addDeletePokemonTest  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.pokemons" is null
 	at es.ies.puerto.file.dos.FilePokedexXmlTest.addDeletePokemonTest(FilePokedexXmlTest.java:53)
 

@@ -3,12 +3,8 @@ package es.ies.puerto.file.uno;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.xml.sax.SAXException;
 
-import java.io.IOException;
 import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 import static utilidades.UtilClassTest.MESSAGE_ERROR;
 
@@ -19,7 +15,7 @@ class FileXmlCriaturaTest {
     List<Criatura> criaturas;
 
     @BeforeEach
-void beforeEach() throws ParserConfigurationException, SAXException, IOException {
+void beforeEach(){
         persistencia = new FileXmlCriatura();
         criaturas = persistencia.obtenerCriaturas();
         criatura = new Criatura();
@@ -34,7 +30,7 @@ void obtenerCriaturasTest() {
     }
 
     @Test
-void obtenerCriaturaTest() throws ParserConfigurationException, SAXException, IOException {
+void obtenerCriaturaTest(){
         String idBuscar = "GF003";
         Criatura critaturaBuscar = new Criatura(idBuscar);
         critaturaBuscar = persistencia.obtener(critaturaBuscar);
@@ -49,7 +45,7 @@ void obtenerCriaturaTest() throws ParserConfigurationException, SAXException, IO
     }
 
     @Test
-void addDeleteCriaturaTest() throws ParserConfigurationException, SAXException, IOException {
+void addDeleteCriaturaTest(){
 
         int numCriaturasInicial = criaturas.size();
         Criatura criaturaInsertar = new Criatura("12345h","Elfo Arquero","Un poderoso arquero elfo que dispara una flecha y da en el blanco a 100 kilometros de distancia","Elfos");
@@ -70,7 +66,7 @@ void addDeleteCriaturaTest() throws ParserConfigurationException, SAXException, 
     }
 
     @Test
-void actualizarCriatura() throws ParserConfigurationException, SAXException, IOException {
+void actualizarCriatura(){
         String idActualizar = "EL004";
         Criatura CriaturaBuscar = new Criatura(idActualizar);
         Criatura CriaturaActualizar = persistencia.obtener(CriaturaBuscar);

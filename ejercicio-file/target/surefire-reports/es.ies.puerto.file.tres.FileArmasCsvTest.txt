@@ -1,20 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: es.ies.puerto.file.tres.FileArmasCsvTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in es.ies.puerto.file.tres.FileArmasCsvTest
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in es.ies.puerto.file.tres.FileArmasCsvTest
 es.ies.puerto.file.tres.FileArmasCsvTest.obtenerArmasTest  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "this.armas" is null
 	at es.ies.puerto.file.tres.FileArmasCsvTest.obtenerArmasTest(FileArmasCsvTest.java:26)
 
-es.ies.puerto.file.tres.FileArmasCsvTest.obtenerArmaTest  Time elapsed: 0.004 s  <<< ERROR!
+es.ies.puerto.file.tres.FileArmasCsvTest.obtenerArmaTest  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "es.ies.puerto.file.tres.Arma.getId()" because "ArmaBuscar" is null
 	at es.ies.puerto.file.tres.FileArmasCsvTest.obtenerArmaTest(FileArmasCsvTest.java:37)
 
-es.ies.puerto.file.tres.FileArmasCsvTest.addDeleteArmaTest  Time elapsed: 0 s  <<< ERROR!
+es.ies.puerto.file.tres.FileArmasCsvTest.addDeleteArmaTest  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.armas" is null
 	at es.ies.puerto.file.tres.FileArmasCsvTest.addDeleteArmaTest(FileArmasCsvTest.java:50)
 
-es.ies.puerto.file.tres.FileArmasCsvTest.actualizarArma  Time elapsed: 0 s  <<< ERROR!
+es.ies.puerto.file.tres.FileArmasCsvTest.actualizarArma  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "es.ies.puerto.file.tres.Arma.setNombre(String)" because "ArmaActualizar" is null
 	at es.ies.puerto.file.tres.FileArmasCsvTest.actualizarArma(FileArmasCsvTest.java:74)
 
