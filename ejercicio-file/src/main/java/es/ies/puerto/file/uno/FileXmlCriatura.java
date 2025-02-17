@@ -11,13 +11,6 @@ public class FileXmlCriatura extends OperacionesCriaturasXml{
     List<Criatura> criaturas = leerFicheroCriaturas();
 
     /**
-     * Constructor que verifica si el archivo existe el fichero
-     */
-    public FileXmlCriatura(){
-        super();
-    }
-
-    /**
      * Funcion que devuelve una lista de criaturas
      * @return lista de criaturas
      */
@@ -46,6 +39,9 @@ public class FileXmlCriatura extends OperacionesCriaturasXml{
      * @param criatura a aniadir
      */
     public void addCriatura(Criatura criatura) {
+        if (criatura == null) {
+            return;
+        }
         criaturas.add(criatura);
         escribirEnXml(criaturas);
     }
@@ -55,6 +51,9 @@ public class FileXmlCriatura extends OperacionesCriaturasXml{
      * @param criatura a eliminar
      */
     public void deleteCriatura(Criatura criatura) {
+        if (criatura == null) {
+            return;
+        }
         criaturas.remove(criatura);
         escribirEnXml(criaturas);
     }
@@ -64,6 +63,9 @@ public class FileXmlCriatura extends OperacionesCriaturasXml{
      * @param criatura con los datos actualizados 
      */
     public void updateCriatura(Criatura criatura) {
+        if (criatura == null) {
+            return;
+        }
         int indice = criaturas.indexOf(criatura);
         criaturas.set(indice, criatura);
         escribirEnXml(criaturas);

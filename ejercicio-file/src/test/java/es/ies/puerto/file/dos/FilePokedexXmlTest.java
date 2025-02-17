@@ -34,16 +34,16 @@ class FilePokedexXmlTest {
 
     @Test
     void obtenerPokemonTest() {
-        String idBuscar = "ID_ACTUALIZAR";
+        String idBuscar = "003";
         Pokemon PokemonBuscar = new Pokemon(idBuscar);
         PokemonBuscar = persistencia.obtenerPokemon(PokemonBuscar);
-        Assertions.assertEquals(PokemonBuscar.getId(),"ID_BUSCAR",
+        Assertions.assertEquals(PokemonBuscar.getId(),idBuscar,
                 MESSAGE_ERROR);
         Assertions.assertNotNull(PokemonBuscar.getNombre(),
                 MESSAGE_ERROR);
-        Assertions.assertTrue (PokemonBuscar.getNombre().equals("VALOR_COMPARAR"),
+        Assertions.assertTrue (PokemonBuscar.getNombre().equals("Squirtle"),
                 MESSAGE_ERROR);
-        Assertions.assertNotNull(PokemonBuscar.getDescripcion().equals("VALOR_COMPARAR"),
+        Assertions.assertNotNull(PokemonBuscar.getDescripcion().equals("Una pequeña tortuga con una concha que puede disparar agua con gran precisión."),
                 MESSAGE_ERROR);
     }
 
@@ -51,7 +51,7 @@ class FilePokedexXmlTest {
     void addDeletePokemonTest() {
 
         int numPokemonsInicial = pokemons.size();
-        Pokemon PokemonInsertar = new Pokemon();
+        Pokemon PokemonInsertar = new Pokemon("006", "Charizard", null, "Dragon de fuego");
 
         persistencia.addPokemon(PokemonInsertar);
         pokemons = persistencia.obtenerPokemons();

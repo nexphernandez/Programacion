@@ -20,7 +20,7 @@ public abstract class OperacionesCriaturasXml {
 
     private String path = "src/main/resources/";
     private String nombreFichero = "uno.xml";
-    File file = new File(path + nombreFichero);
+    private File file = new File(path + nombreFichero);
     
     /**
      * Funcion que lee las criaturas del fichero

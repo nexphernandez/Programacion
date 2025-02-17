@@ -1,22 +1,75 @@
 package es.ies.puerto.file.dos;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 import java.util.List;
 
-public class FilePokedexXml {
+public class FilePokedexXml extends OperacionesPokemonXml{
 
+    List<Pokemon> pokemons = leerFicheroCriaturas();
+
+    /**
+     * Funcion que lee los pokemons que se encuentran en el fichero
+     * @return lista de pokemons
+     */
     public List<Pokemon> obtenerPokemons() {
-        return null;
+        return pokemons;
     }
+
+    /**
+     * Funcion que obtiene un pokemon del fichero
+     * @param pokemon a buscar
+     * @return pokemon con todos los atributos
+     */
     public Pokemon obtenerPokemon(Pokemon pokemon) {
+        if (pokemon == null) {
+            return null;
+        }
+        for (Pokemon pokemonBuscar : pokemons) {
+            if (pokemonBuscar.equals(pokemon)) {
+                return pokemonBuscar;
+            }
+        }
         return null;
     }
+
+    /**
+     * Funcion que agregan pokemons al fichero
+     * @param pokemon a aniadir
+     */
     public void addPokemon(Pokemon pokemon) {
+        if (pokemon == null) {
+            return;
+        }
+        pokemons.add(pokemon);
+        escribirEnXml(pokemons);
 
     }
+
+    /**
+     * Funcion que borran pokemos del fichero
+     * @param pokemon a eliminar
+     */
     public void deletePokemon(Pokemon pokemon) {
-
+        if (pokemon == null) {
+            return;
+        }
+        pokemons.remove(pokemon);
+        escribirEnXml(pokemons);
     }
+
+    /**
+     * Funcion que actualiza un pokemon del fichero
+     * @param pokemon con los datos a actualizar
+     */
     public void updatePokemon(Pokemon pokemon) {
+        if (pokemon == null) {
+            return;
+        }
+        int indice = pokemons.indexOf(pokemon);
+        pokemons.set(indice, pokemon);
+        escribirEnXml(pokemons);
 
     }
 

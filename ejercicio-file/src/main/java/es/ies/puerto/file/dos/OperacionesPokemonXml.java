@@ -1,4 +1,4 @@
-package es.ies.puerto.file.uno;
+package es.ies.puerto.file.dos;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -61,12 +61,12 @@ public abstract class OperacionesPokemonXml {
     }
 
     /**
-     * Funcion que escribe una lista de criaturas en el Xml
-     * @param criaturas a escribir
+     * Funcion que escribe una lista de pokemons en el Xml
+     * @param pokemons a escribir
      * @return true/false
      */
-    public boolean escribirEnXml(List<Criatura> criaturas){
-        if (criaturas.isEmpty()) {
+    public boolean escribirEnXml(List<Pokemon> pokemons){
+        if (pokemons.isEmpty()) {
             return false;
         }
         try {
@@ -74,34 +74,35 @@ public abstract class OperacionesPokemonXml {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.newDocument();
             
-            Element root = doc.createElement("criaturas");
+            Element root = doc.createElement("pokedex");
             doc.appendChild(root);
             
-            for (Criatura criaturaAniadir : criaturas) {
+            for (Pokemon pokemonAniadir : pokemons) {
                 
-                Element criatura = doc.createElement("criatura");
-                root.appendChild(criatura);
+                Element pokemon = doc.createElement("pokemon");
+                root.appendChild(pokemon);
 
                 Element id = doc.createElement("id");
-                id.appendChild(doc.createTextNode(criaturaAniadir.getId()));
-                criatura.appendChild(id);
+                id.appendChild(doc.createTextNode(pokemonAniadir.getId()));
+                pokemon.appendChild(id);
                 
                 Element nombre = doc.createElement("nombre");
-                nombre.appendChild(doc.createTextNode(criaturaAniadir.getNombre()));
-                criatura.appendChild(nombre);
+                nombre.appendChild(doc.createTextNode(pokemonAniadir.getNombre()));
+                pokemon.appendChild(nombre);
+
+                Element tipos = doc.createElement("tipos");
+                tipos.appendChild(doc.createTextNode(pokemonAniadir.getTipos()));
+                pokemon.appendChild(tipos);
                 
                 Element descripcion = doc.createElement("descripcion");
-                descripcion.appendChild(doc.createTextNode(criaturaAniadir.getDescripcion()));
-                criatura.appendChild(descripcion);
+                descripcion.appendChild(doc.createTextNode(pokemonAniadir.getDescripcion()));
+                pokemon.appendChild(descripcion);
                 
-                Element categoria = doc.createElement("categoria");
-                categoria.appendChild(doc.createTextNode(criaturaAniadir.getCategoria()));
-                criatura.appendChild(categoria);
             }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File("src/main/resources/uno.xml"));
+            StreamResult result = new StreamResult(new File("src/main/resources/dos.xml"));
             transformer.transform(source, result);
             return true;
         } catch (Exception e) {
