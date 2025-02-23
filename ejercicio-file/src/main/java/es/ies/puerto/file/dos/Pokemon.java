@@ -18,7 +18,6 @@ public class Pokemon {
      * Constructor vacio
      */
     public Pokemon(){
-        this.tipos = new ArrayList<>();
     }
 
     /**
@@ -39,7 +38,7 @@ public class Pokemon {
     public Pokemon(String id, String nombre, List<String> tipos, String descripcion){
         this.id = id;
         this.nombre = nombre;
-        this.tipos = new ArrayList<>();
+        this.tipos = tipos;
         this.descripcion = descripcion;
     }
 
@@ -59,8 +58,8 @@ public class Pokemon {
         this.nombre = nombre;
     }
 
-    public String getTipos() {
-        return tipos.toString();
+    public List<String> getTipos() {
+        return this.tipos;
     }
 
     public void setTipos(List<String> tipos) {

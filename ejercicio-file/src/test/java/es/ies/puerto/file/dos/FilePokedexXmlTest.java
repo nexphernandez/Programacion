@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.ies.puerto.file.dos.FilePokedexXml;
-import es.ies.puerto.file.dos.Pokemon;
-
 import java.util.List;
 
 import static utilidades.UtilClassTest.MESSAGE_ERROR;
@@ -70,12 +67,12 @@ class FilePokedexXmlTest {
 
     @Test
     void actualizarPokemon() {
-        String idActualizar = "ID_ACTUALIZAR";
+        String idActualizar = "005";
         Pokemon PokemonBuscar = new Pokemon(idActualizar);
         Pokemon PokemonActualizar = persistencia.obtenerPokemon(PokemonBuscar);
         Pokemon PokemonBackup = persistencia.obtenerPokemon(PokemonBuscar);
-        PokemonActualizar.setNombre("nombreActualizar");
-        PokemonActualizar.setDescripcion("descripcionActualizar");
+        PokemonActualizar.setNombre("Snorlax");
+        PokemonActualizar.setDescripcion("Gordoooo durmiente");
         persistencia.updatePokemon(PokemonActualizar);
 
         PokemonBuscar = persistencia.obtenerPokemon(PokemonBuscar);

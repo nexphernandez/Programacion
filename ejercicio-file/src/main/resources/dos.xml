@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pokedex>
     <pokemon>
         <id>001</id>
@@ -34,11 +35,11 @@
     </pokemon>
     <pokemon>
         <id>005</id>
-        <nombre>Jigglypuff</nombre>
+        <nombre>Snorlax</nombre>
         <tipos>
             <tipo>Normal</tipo>
             <tipo>Hada</tipo>
         </tipos>
-        <descripcion>Un Pokémon redondo que canta una dulce canción que puede hacer dormir a cualquiera.</descripcion>
+        <descripcion>Gordoooo durmiente</descripcion>
     </pokemon>
 </pokedex>

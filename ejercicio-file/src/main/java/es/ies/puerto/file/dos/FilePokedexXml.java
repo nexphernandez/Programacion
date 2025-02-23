@@ -5,9 +5,9 @@ package es.ies.puerto.file.dos;
  */
 import java.util.List;
 
-public class FilePokedexXml extends OperacionesPokemonXml{
+public class FilePokedexXml extends XmlOperationsPok{
 
-    List<Pokemon> pokemons = leerFicheroCriaturas();
+    List<Pokemon> pokemons = xmlPokRead();
 
     /**
      * Funcion que lee los pokemons que se encuentran en el fichero
@@ -43,7 +43,7 @@ public class FilePokedexXml extends OperacionesPokemonXml{
             return;
         }
         pokemons.add(pokemon);
-        escribirEnXml(pokemons);
+        xmlPokWrite(pokemons);
 
     }
 
@@ -56,7 +56,7 @@ public class FilePokedexXml extends OperacionesPokemonXml{
             return;
         }
         pokemons.remove(pokemon);
-        escribirEnXml(pokemons);
+        xmlPokWrite(pokemons);
     }
 
     /**
@@ -67,9 +67,10 @@ public class FilePokedexXml extends OperacionesPokemonXml{
         if (pokemon == null) {
             return;
         }
-        int indice = pokemons.indexOf(pokemon);
-        pokemons.set(indice, pokemon);
-        escribirEnXml(pokemons);
+        if (pokemons.removeIf(p -> p.getId().equals(pokemon.getId()))) {
+            pokemons.add(pokemon);
+        }
+        xmlPokWrite(pokemons);
 
     }
 

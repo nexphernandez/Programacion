@@ -31,16 +31,16 @@ class FileArmasCsvTest {
 
     @Test
     void obtenerArmaTest() {
-        String idBuscar = "ID_ACTUALIZAR";
+        String idBuscar = "EX001";
         Arma ArmaBuscar = new Arma(idBuscar);
         ArmaBuscar = persistencia.obtenerArma(ArmaBuscar);
-        Assertions.assertEquals(ArmaBuscar.getId(),"ID_BUSCAR",
+        Assertions.assertEquals(ArmaBuscar.getId(),"EX001",
                 MESSAGE_ERROR);
         Assertions.assertNotNull(ArmaBuscar.getNombre(),
                 MESSAGE_ERROR);
-        Assertions.assertTrue (ArmaBuscar.getOrigen().equals("VALOR_COMPARAR"),
+        Assertions.assertTrue (ArmaBuscar.getOrigen().equals("Camelot"),
                 MESSAGE_ERROR);
-        Assertions.assertNotNull(ArmaBuscar.getOrigen().equals("VALOR_COMPARAR"),
+        Assertions.assertNotNull(ArmaBuscar.getOrigen().equals("Camelot"),
                 MESSAGE_ERROR);
     }
 
@@ -48,7 +48,7 @@ class FileArmasCsvTest {
     void addDeleteArmaTest() {
 
         int numArmasInicial = armas.size();
-        Arma ArmaInsertar = new Arma();
+        Arma ArmaInsertar = new Arma("LG001", "Gladius", "Cuchillo para pinchar", "Roma", 10);
 
         persistencia.addArma(ArmaInsertar);
         armas = persistencia.obtenerArmas();
@@ -67,12 +67,12 @@ class FileArmasCsvTest {
 
     @Test
     void actualizarArma() {
-        String idActualizar = "ID_ACTUALIZAR";
+        String idActualizar = "EX001";
         Arma ArmaBuscar = new Arma(idActualizar);
         Arma ArmaActualizar = persistencia.obtenerArma(ArmaBuscar);
         Arma ArmaBackup = persistencia.obtenerArma(ArmaBuscar);
-        ArmaActualizar.setNombre("nombreActualizar");
-        ArmaActualizar.setDescripcion("descripcionActualizar");
+        ArmaActualizar.setNombre("Andúril");
+        ArmaActualizar.setDescripcion("La espada de Aragorn");
         persistencia.updateArma(ArmaActualizar);
 
         ArmaBuscar = persistencia.obtenerArma(ArmaBuscar);
