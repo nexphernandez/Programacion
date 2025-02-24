@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import es.file.json.dos.Tributo;
+
 import es.file.json.uno.*;
 
 class CaballeroServiceTest {
