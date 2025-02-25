@@ -12,7 +12,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @version 1.0.0
  */
 public abstract class BasicOperations {
-    private static ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
+    File file;
 
     /**
      * Constructor vacio
@@ -22,17 +23,33 @@ public abstract class BasicOperations {
     }
 
     /**
+     * Constructor con el path
+     * @param path path del documento
+     */
+    protected BasicOperations(String path){
+        file = new File(path);
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        objectMapper = new ObjectMapper();
+    }
+
+
+    /**
      * Funcion que pasa los datos de un fichero json a una lista
      * @param <T> Tipo generico de los elementos de la lista
      * @param file json con los datos
      * @param typeReference de la lista con el tipo generico
      * @return Set con los datos
      */
-    public static <T> Set<T>leerFichero(File file, TypeReference<Set<T>> typeReference){
+    public  <T> Set<T>leerFichero(TypeReference<Set<T>> typeReference){
         try {  
             return objectMapper.readValue(file, typeReference);
         } catch (Exception e) {
-            e.printStackTrace();
             return new HashSet<>();
         } 
     }
@@ -44,12 +61,11 @@ public abstract class BasicOperations {
      * @param file donde aniadir los datos
      * @return true/false
      */
-    public static <T> boolean writeFichero(Set<T> set, File file){
+    public  <T> boolean writeFichero(Set<T> set){
         try {
             objectMapper.writeValue(file, set);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }

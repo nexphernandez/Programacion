@@ -13,23 +13,18 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import es.file.json.BasicOperations;
 
+
 public class TributoService extends BasicOperations{
-    private File file = new File("src/main/resources/tributos.json");
+    private static String path = "src/main/resources/tributos.json";
     private TypeReference<Set<Tributo>> typeReference = new TypeReference<Set<Tributo>>(){};
     private Set<Tributo> tributos;
-
+    
     /**
      * Constructor vacio
      */
     public TributoService() {
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-        tributos = BasicOperations.leerFichero(file, typeReference);
+        super(path);
+        tributos = leerFichero(typeReference);
     }
 
     /**
@@ -42,6 +37,7 @@ public class TributoService extends BasicOperations{
         for (Tributo TributoBuscar : tributos) {
             if (tributo.equals(TributoBuscar)) {
                 return TributoBuscar;
+                
             }
         }
         return null;
