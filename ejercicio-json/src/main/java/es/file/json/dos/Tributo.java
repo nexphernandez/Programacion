@@ -1,9 +1,12 @@
 package es.file.json.dos;
 
 import com.fasterxml.jackson.annotation.*;
-import java.time.LocalDate;
-import java.util.Objects;
 
+import java.util.Objects;
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class Tributo {
     private int id;
     private String nombre;
@@ -11,6 +14,14 @@ public class Tributo {
     private boolean voluntario;
     private String fechaSeleccion;
 
+    /**
+     * Constructor con los atributos de la clase
+     * @param id del tributo
+     * @param nombre del tributo
+     * @param distrito del tributo
+     * @param voluntario del tributo
+     * @param fechaSeleccion del tributo
+     */
     @JsonCreator
     public Tributo(@JsonProperty("id") int id,
                    @JsonProperty("nombre") String nombre,
