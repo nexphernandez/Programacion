@@ -15,6 +15,11 @@ public class Tributo {
     private String fechaSeleccion;
 
     /**
+     * constructor vacio
+     */
+    public Tributo(){}
+
+    /**
      * Constructor con los atributos de la clase
      * @param id del tributo
      * @param nombre del tributo
@@ -35,6 +40,10 @@ public class Tributo {
         this.fechaSeleccion = fechaSeleccion;
     }
 
+    /**
+     * Constructor con los atributos de la clase
+     * @param id del tributo
+     */
     public Tributo(@JsonProperty("id") int id) {
         this.id = id;
     }
@@ -63,6 +72,9 @@ public class Tributo {
         return this.fechaSeleccion;
     }
 
+    /**
+     * Funcion equals de la clase
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -73,4 +85,13 @@ public class Tributo {
         Tributo tributo = (Tributo) o;
         return Objects.equals(id, tributo.id);
     }
+
+    /**
+     * Mertodo hasCode de la clase
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }

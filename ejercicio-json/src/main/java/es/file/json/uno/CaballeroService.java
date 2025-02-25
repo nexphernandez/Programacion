@@ -16,7 +16,7 @@ import es.file.json.BasicOperations;
 public class CaballeroService extends BasicOperations{
     private File file = new File("src/main/resources/caballeros.json");
     private TypeReference<Set<Caballero>> typeReference = new TypeReference<Set<Caballero>>() {}; 
-    Set<Caballero> caballeros;
+    private Set<Caballero> caballeros;
     
     /**
      * Constructor vacio
@@ -55,6 +55,9 @@ public class CaballeroService extends BasicOperations{
      * @return lista de caballeros
      */
     public List<Caballero> findByDateRange(String startDate, String endDate) {
+        if (startDate == null || startDate.isEmpty() || endDate == null || endDate.isEmpty()) {
+            return new ArrayList<>();
+        }
         LocalDate fechaInicio = LocalDate.parse(startDate);
         LocalDate fechaFin = LocalDate.parse(endDate);
         List<Caballero> porRango = new ArrayList<>();
