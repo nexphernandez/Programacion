@@ -36,4 +36,31 @@ class ProcesadorDePedidosTest {
             Assertions.assertTrue(e.getMessage().contains("Pedido"));
         }
     }
+
+    @Test
+    void calcularTotalTest() {
+        Assertions.assertEquals(30, procesadorDePedidos.calcularTotal(), "La suma es incorrecta");
+    }
+
+    @Test
+    void obtenerPedidoPorIdTest() {
+        Pedido pedidoNumero1 = procesadorDePedidos.obtenerPedidoPorId(1);
+        Assertions.assertNotNull(pedidoNumero1);
+        Assertions.assertEquals(pedido1, pedidoNumero1);
+        Assertions.assertEquals(pedido1.getPrecio(), pedidoNumero1.getPrecio());
+        Assertions.assertEquals(pedido1.getCliente(), pedidoNumero1.getCliente());
+    }
+
+    @Test
+    void obtenerPedidoPorIdNullTest() {
+        Pedido pedidoNumero999 = procesadorDePedidos.obtenerPedidoPorId(999);
+        Assertions.assertNull(pedidoNumero999);
+    }
+
+    @Test
+    void eliminarPedidoTest() {
+        boolean eliminado = procesadorDePedidos.eliminarPedido(1);
+        Assertions.assertTrue(eliminado);
+        Assertions.assertEquals(1, procesadorDePedidos.obtenerPedidos().size());
+    }
 }
