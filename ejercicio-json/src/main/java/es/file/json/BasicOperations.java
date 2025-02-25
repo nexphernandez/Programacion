@@ -1,8 +1,7 @@
 package es.file.json;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -27,14 +26,14 @@ public abstract class BasicOperations {
      * @param <T> Tipo generico de los elementos de la lista
      * @param file json con los datos
      * @param typeReference de la lista con el tipo generico
-     * @return Lista con los datos
+     * @return Set con los datos
      */
-    public static <T> List<T>leerFichero(File file, TypeReference<List<T>> typeReference){
+    public static <T> Set<T>leerFichero(File file, TypeReference<Set<T>> typeReference){
         try {  
             return objectMapper.readValue(file, typeReference);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ArrayList<>();
+            return new HashSet<>();
         } 
     }
 

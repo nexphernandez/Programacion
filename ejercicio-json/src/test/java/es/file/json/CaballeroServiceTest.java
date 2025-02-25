@@ -35,18 +35,18 @@ class CaballeroServiceTest {
     }
 
     @Test
-    void addTributoTest() {
+    void caballeroTest() {
         Assertions.assertEquals(5, caballeroService.loadAll().size());
     }
 
     @Test
-    void addTributoNullTest() {
+    void addCaballeroNullTest() {
         boolean addTributo = caballeroService.add(null);
         Assertions.assertFalse(addTributo);
     }
 
     @Test
-    void addTributoExistTest() {
+    void addCaballeroExistTest() {
         boolean addTributo = caballeroService.add(caballero);
         Assertions.assertFalse(addTributo);
     }
@@ -58,19 +58,19 @@ class CaballeroServiceTest {
     }
 
     @Test
-    void searchTributoByIdNotExistTest() {
+    void searchCablleroByIdNotExistTest() {
         Caballero caballeroSearch = caballeroService.findById(999);
         Assertions.assertNull(caballeroSearch); 
     }
 
     @Test
-    void searchTributoByIdNegativoTest() {
+    void searchCaballeroByIdNegativoTest() {
         Caballero caballeroSearch = caballeroService.findById(-1);
         Assertions.assertNull(caballeroSearch); 
     }
 
     @Test
-    void searchTributoDeleteNotExistTest() {
+    void searchCaballeroDeleteNotExistTest() {
         Caballero caballeroNotExist = new Caballero(999);
         boolean delete = caballeroService.delete(caballeroNotExist);
         Assertions.assertFalse(delete); 
