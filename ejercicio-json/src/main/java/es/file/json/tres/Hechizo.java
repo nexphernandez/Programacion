@@ -1,9 +1,11 @@
 package es.file.json.tres;
 
 import com.fasterxml.jackson.annotation.*;
-import java.time.LocalDate;
 import java.util.Objects;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Hechizo {
     private int id;
@@ -12,6 +14,19 @@ public class Hechizo {
     private boolean esOscuro;
     private String fechaCreacion;
 
+    /**
+     * Constructor vacio
+     */
+    public Hechizo(){}
+
+    /**
+     * Constructor con los atributos de la clase
+     * @param id del hechizo
+     * @param nombre del hechizo
+     * @param tipo del hechizo
+     * @param esOscuro el hechizo
+     * @param fechaCreacion del hechizo
+     */
     @JsonCreator
     public Hechizo(@JsonProperty("id") int id,
                    @JsonProperty("nombre") String nombre,
@@ -25,6 +40,10 @@ public class Hechizo {
         this.fechaCreacion = fechaCreacion;
     }
 
+    /**
+     * Constructor con la clave primaria de la clase
+     * @param id del hechizo
+     */
     public Hechizo(@JsonProperty("id") int id) {
         this.id = id;
     }
@@ -54,6 +73,9 @@ public class Hechizo {
         return this.fechaCreacion;
     }
 
+    /**
+     * Funcion equals de la clase
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -63,6 +85,14 @@ public class Hechizo {
         }
         Hechizo hechizo = (Hechizo) o;
         return Objects.equals(id, hechizo.id);
+    }
+
+    /**
+     * Funcion hasCode de la clase
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
 }
