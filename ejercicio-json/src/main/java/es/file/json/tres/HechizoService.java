@@ -15,8 +15,8 @@ import es.file.json.BasicOperations;
  * @version 1.0.0
  */
 
-public class HechizoService   {
-    private File file = new File("src/main/resources/cars.json");
+public class HechizoService  extends BasicOperations {
+    private File file = new File("src/main/resources/hechizos.json");
     private TypeReference <Set<Hechizo>> typeReference = new TypeReference<Set<Hechizo>>() {};
     private Set<Hechizo> hechizos;
 
@@ -64,29 +64,61 @@ public class HechizoService   {
         List<Hechizo> hechizos2 = new ArrayList<>();
         for (Hechizo hechizoBuscado : hechizos) {
             LocalDate hechizo = LocalDate.parse(hechizoBuscado.getFechaCreacion());
-            if (!hechizo.isAfter(fechaInicio) || !hechizo.isBefore(fechaFin)) {
+            if (!hechizo.isAfter(fechaFin) && !hechizo.isBefore(fechaInicio)) {
                 hechizos2.add(hechizoBuscado);
             }
         }
         return hechizos2;
     }
 
+    /**
+     * Funcion que encuentra la lista de hechizos
+     * @return lista de hechizos
+     */
     public List<Hechizo> getList() {
-        return null;
+        return new ArrayList<>(hechizos);
     }
     
+    /**
+     * Funcion que encuentra la lista de hechizos
+     * @return lista de hechizos
+     */
     public List<Hechizo> loadAll() {
-        return null;
+        return new ArrayList<>(hechizos);
     }
     
-    
-    
+    /**
+     * Funcion que aniade hechizos al fichero
+     * @param obj hechizo a aniadir
+     * @return true/false
+     */
     public boolean add(Hechizo obj) {
-        return false;
+        if (obj == null) {
+            return false;
+        }
+        if (hechizos.contains(obj)) {
+            return false;
+        }
+        hechizos.add(obj);
+        BasicOperations.writeFichero(hechizos, file);
+        return true;
     }
 
+    /**
+     * Funcion que borra un hechizo del fichero
+     * @param obj hechizo a borrar
+     * @return true/false
+     */
     public boolean delete(Hechizo obj) {
-        return false;
+        if (obj == null) {
+            return false;
+        }
+        if (!hechizos.contains(obj)) {
+            return false;
+        }
+        hechizos.remove(obj);
+        BasicOperations.writeFichero(hechizos, file);
+        return true;
     }
     
     

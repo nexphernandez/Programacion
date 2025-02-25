@@ -103,8 +103,8 @@ public class TributoService extends BasicOperations{
     }
 
     /**
-     * Funcion que borra un atributo del fichero
-     * @param obj atributo a borrar
+     * Funcion que borra un tributo del fichero
+     * @param obj hechizo a borrar
      * @return true/false
      */
     public boolean delete(Tributo obj) {
