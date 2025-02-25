@@ -61,11 +61,14 @@ public class HechizoService   {
         }
         LocalDate fechaInicio = LocalDate.parse(startDate);
         LocalDate fechaFin = LocalDate.parse(endDate);
+        List<Hechizo> hechizos2 = new ArrayList<>();
         for (Hechizo hechizoBuscado : hechizos) {
             LocalDate hechizo = LocalDate.parse(hechizoBuscado.getFechaCreacion());
-            
+            if (!hechizo.isAfter(fechaInicio) || !hechizo.isBefore(fechaFin)) {
+                hechizos2.add(hechizoBuscado);
+            }
         }
-        return null;
+        return hechizos2;
     }
 
     public List<Hechizo> getList() {
