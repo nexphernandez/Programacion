@@ -1,6 +1,5 @@
 package es.file.json.dos;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +8,10 @@ import java.util.Set;
  * @author nexphernandez
  * @version 1.0.0
  */
-import com.fasterxml.jackson.core.type.TypeReference;
-
-import es.file.json.BasicOperations;
 
 
-public class TributoService extends BasicOperations{
+public class TributoService extends es.file.json.dos.BasicOperationsTributo{
     private static String path = "src/main/resources/tributos.json";
-    private TypeReference<Set<Tributo>> typeReference = new TypeReference<Set<Tributo>>(){};
     private Set<Tributo> tributos;
     
     /**
@@ -24,7 +19,7 @@ public class TributoService extends BasicOperations{
      */
     public TributoService() {
         super(path);
-        tributos = leerFichero(typeReference);
+        tributos = leerFichero();
     }
 
     /**
@@ -94,7 +89,7 @@ public class TributoService extends BasicOperations{
             return false;
         }
         tributos.add(obj);
-        BasicOperations.writeFichero(tributos, file);
+        writeFichero(tributos);
         return true;
     }
 
@@ -111,7 +106,7 @@ public class TributoService extends BasicOperations{
             return false;
         }
         tributos.remove(obj);
-        BasicOperations.writeFichero(tributos, file);
+        writeFichero(tributos);
         return true;
     }
     

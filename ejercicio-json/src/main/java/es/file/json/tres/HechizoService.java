@@ -1,37 +1,28 @@
 package es.file.json.tres;
 
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 
-import es.file.json.BasicOperations;
+
 /**
  * @author nexphernandez
  * @version 1.0.0
  */
 
-public class HechizoService  extends BasicOperations {
-    private File file = new File("src/main/resources/hechizos.json");
-    private TypeReference <Set<Hechizo>> typeReference = new TypeReference<Set<Hechizo>>() {};
+public class HechizoService  extends BasicOperationsHechizos {
+    private static String path ="src/main/resources/hechizos.json";
     private Set<Hechizo> hechizos;
 
     /**
      * Constructor vacio
      */
     public HechizoService() {
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-        hechizos = BasicOperations.leerFichero(file, typeReference);
+        super(path);
+        hechizos = leerFichero();
     }
 
     /**
@@ -100,7 +91,7 @@ public class HechizoService  extends BasicOperations {
             return false;
         }
         hechizos.add(obj);
-        BasicOperations.writeFichero(hechizos, file);
+        writeFichero(hechizos);
         return true;
     }
 
@@ -117,7 +108,7 @@ public class HechizoService  extends BasicOperations {
             return false;
         }
         hechizos.remove(obj);
-        BasicOperations.writeFichero(hechizos, file);
+        writeFichero(hechizos);
         return true;
     }
     

@@ -1,36 +1,22 @@
 package es.file.json.uno;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-
-import es.file.json.BasicOperations;
 /**
  * @author nexphernandez
  * @version 1.0.0
  */
-public class CaballeroService extends BasicOperations{
-    private File file = new File("src/main/resources/caballeros.json");
-    private TypeReference<Set<Caballero>> typeReference = new TypeReference<Set<Caballero>>() {}; 
+public class CaballeroService extends BasicOperationsCaballeros{
     private Set<Caballero> caballeros;
-    
+    private static String path = "src/main/resources/caballeros.json";
     /**
      * Constructor vacio
      */
     public CaballeroService() {
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        caballeros = BasicOperations.leerFichero(file, typeReference);
-        
+        super(path);
+        caballeros = leerFichero();
     }
 
     /**
@@ -96,7 +82,7 @@ public class CaballeroService extends BasicOperations{
             return false;
         }
         caballeros.add(obj);
-        BasicOperations.writeFichero(caballeros, file);
+        writeFichero(caballeros);
         return false;
     }
 
@@ -110,7 +96,7 @@ public class CaballeroService extends BasicOperations{
             return false;
         }
         caballeros.remove(obj);
-        BasicOperations.writeFichero(caballeros, file);
+        writeFichero(caballeros);
         return false;
     }
         
