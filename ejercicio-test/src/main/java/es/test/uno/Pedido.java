@@ -35,13 +35,12 @@ public class Pedido {
             return false;
         }
         Pedido pedido = (Pedido) o;
-        return id == pedido.id;
+        return Objects.equals(id, pedido.getId());
+        
+
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+
     
 }
 

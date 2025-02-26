@@ -1,5 +1,7 @@
 package es.test.dos;
 
+import java.util.Objects;
+
 public class Producto {
     private int id;
     private String nombre;
@@ -24,5 +26,16 @@ public class Producto {
 
     public int getStock() {
         return stock;
+    }
+    
+    @Override
+    public boolean equals(Object o){
+        if (o == this) 
+            return true;
+        if (!(o instanceof Producto)) {
+            return false;
+        }
+        Producto producto = (Producto) o;
+        return Objects.equals(id, producto.getId());
     }
 }
