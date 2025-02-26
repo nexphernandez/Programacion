@@ -10,12 +10,12 @@ import java.util.Set;
  */
 public class CaballeroService extends BasicOperationsCaballeros{
     private Set<Caballero> caballeros;
-    private static String path = "src/main/resources/caballeros.json";
+    
     /**
      * Constructor vacio
      */
     public CaballeroService() {
-        super(path);
+        super();
         caballeros = leerFichero();
     }
 

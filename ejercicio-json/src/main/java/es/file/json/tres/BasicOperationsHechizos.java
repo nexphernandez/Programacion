@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @version 1.0.0
  */
 public abstract class BasicOperationsHechizos {
+    private String path;
     private ObjectMapper objectMapper;
     private File file;
 
@@ -19,7 +20,8 @@ public abstract class BasicOperationsHechizos {
      * Constructor con el path
      * @param path path del documento
      */
-    protected BasicOperationsHechizos(String path){
+    protected BasicOperationsHechizos(){
+        path ="src/main/resources/hechizos.json";
         file = new File(path);
         try {
             if (!file.exists()) {

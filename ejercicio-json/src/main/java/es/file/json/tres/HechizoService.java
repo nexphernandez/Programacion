@@ -14,14 +14,13 @@ import java.util.Set;
  */
 
 public class HechizoService  extends BasicOperationsHechizos {
-    private static String path ="src/main/resources/hechizos.json";
     private Set<Hechizo> hechizos;
 
     /**
      * Constructor vacio
      */
     public HechizoService() {
-        super(path);
+        super();
         hechizos = leerFichero();
     }
 

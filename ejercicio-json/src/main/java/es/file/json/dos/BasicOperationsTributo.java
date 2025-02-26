@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @version 1.0.0
  */
 public abstract class BasicOperationsTributo {
+    private String path;
     private ObjectMapper objectMapper;
     private File file;
 
@@ -19,7 +20,8 @@ public abstract class BasicOperationsTributo {
      * Constructor con el path
      * @param path path del documento
      */
-    protected BasicOperationsTributo(String path){
+    protected BasicOperationsTributo(){
+        path = "src/main/resources/tributos.json";
         file = new File(path);
         try {
             if (!file.exists()) {

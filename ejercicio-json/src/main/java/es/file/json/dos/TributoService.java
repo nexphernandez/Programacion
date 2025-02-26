@@ -11,14 +11,13 @@ import java.util.Set;
 
 
 public class TributoService extends es.file.json.dos.BasicOperationsTributo{
-    private static String path = "src/main/resources/tributos.json";
     private Set<Tributo> tributos;
     
     /**
      * Constructor vacio
      */
     public TributoService() {
-        super(path);
+        super();
         tributos = leerFichero();
     }
 

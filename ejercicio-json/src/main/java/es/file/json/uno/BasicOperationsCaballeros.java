@@ -14,13 +14,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public abstract class BasicOperationsCaballeros {
     private ObjectMapper objectMapper;
     private File file;
-
+    private String path;
 
     /**
      * Constructor con el path
      * @param path path del documento
      */
-    protected BasicOperationsCaballeros(String path){
+    protected BasicOperationsCaballeros(){
+        path = "src/main/resources/caballeros.json";
         file = new File(path);
         try {
             if (!file.exists()) {
