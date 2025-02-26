@@ -15,11 +15,6 @@ public class Hechizo {
     private String fechaCreacion;
 
     /**
-     * Constructor vacio
-     */
-    public Hechizo(){}
-
-    /**
      * Constructor con los atributos de la clase
      * @param id del hechizo
      * @param nombre del hechizo

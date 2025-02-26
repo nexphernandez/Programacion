@@ -55,14 +55,6 @@ public class CaballeroService extends BasicOperationsCaballeros{
         }
         return porRango;
     }
-
-    /**
-     * Funcion que encuentra la lista de caballeros
-     * @return lista de caballeros
-     */
-    public List<Caballero> getList() {
-        return new ArrayList<>(caballeros);
-    }
     
     /**
      * Funcion que carga la lista de caballeros

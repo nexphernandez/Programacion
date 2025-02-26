@@ -15,11 +15,6 @@ public class Tributo {
     private String fechaSeleccion;
 
     /**
-     * constructor vacio
-     */
-    public Tributo(){}
-
-    /**
      * Constructor con los atributos de la clase
      * @param id del tributo
      * @param nombre del tributo

@@ -61,14 +61,6 @@ public class HechizoService  extends BasicOperationsHechizos {
         }
         return hechizos2;
     }
-
-    /**
-     * Funcion que encuentra la lista de hechizos
-     * @return lista de hechizos
-     */
-    public List<Hechizo> getList() {
-        return new ArrayList<>(hechizos);
-    }
     
     /**
      * Funcion que encuentra la lista de hechizos

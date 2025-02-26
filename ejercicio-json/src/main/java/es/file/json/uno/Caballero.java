@@ -14,11 +14,6 @@ public class Caballero {
     private String fechaIngreso;
 
     /**
-     * Cosntructor vacio
-     */
-    public Caballero(){}
-
-    /**
      * Constructor con los atributos de la clae
      * @param id del caballero
      * @param nombre del caballero

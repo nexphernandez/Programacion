@@ -59,14 +59,6 @@ public class TributoService extends es.file.json.dos.BasicOperationsTributo{
         }    
         return tributosByRange;
     }
-
-    /**
-     * Funcion que encuentra la lista de tributos
-     * @return lista de tributos
-     */
-    public List<Tributo> getList() {
-        return new ArrayList<>(tributos);
-    }
     
     /**
      * Funcion que encuentra la lista de tributos
