@@ -11,7 +11,7 @@ class InventarioTest {
     @BeforeEach
     void beforeEach() {
         producto1 = new Producto(1, "Papas", 10);
-        producto2 = new Producto(1, "Papas fritas", 20);
+        producto2 = new Producto(2, "Papas fritas", 20);
         inventario = new Inventario();
         inventario.agregarProducto(producto1);
         inventario.agregarProducto(producto2);
@@ -20,5 +20,36 @@ class InventarioTest {
     @Test
     void agregarProductoTest() {
         Assertions.assertEquals(2, inventario.obtenerProductos().size());
+    }
+
+    @Test
+    void agregarProductoNullTest() {
+        Producto producto =null;
+        try {
+            inventario.agregarProducto(producto);
+            Assertions.fail("error no controlado");
+        } catch (Exception e) {
+            if (!(e instanceof IllegalArgumentException)) {
+                Assertions.fail("error no controlado");
+            }
+            Assertions.assertTrue(e.getMessage().contains("Producto inválido"));
+        }
+    }
+
+    @Test
+    void eliminarProductoTest() {
+        Producto producto3 = new Producto(3, "ghf", 12);
+        inventario.agregarProducto(producto3);
+        inventario.eliminarProducto(3);
+        Assertions.assertEquals(2, inventario.obtenerProductos().size());
+    }
+
+    @Test
+    void obtenerProductoPorIdTest() {
+        Producto productoNuevo = inventario.obtenerProductoPorId(1);
+        Assertions.assertNotNull(productoNuevo);
+        Assertions.assertEquals(producto1, productoNuevo);
+        Assertions.assertEquals(producto1.getNombre(), productoNuevo.getNombre());
+        Assertions.assertEquals(producto1.getStock(), productoNuevo.getStock());
     }
 }

@@ -11,7 +11,7 @@ public class Inventario {
     }
 
     public void agregarProducto(Producto producto) {
-        if (producto == null || producto.getStock() < 0) {
+        if (producto == null) {
             throw new IllegalArgumentException("Producto inválido");
         }
         productos.add(producto);
