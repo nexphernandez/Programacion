@@ -11,7 +11,7 @@ public class GestorDeTareas {
     }
 
     public void agregarTarea(Tarea tarea) {
-        if (tarea == null || tarea.getDescripcion().isEmpty()) {
+        if (tarea == null ) {
             throw new IllegalArgumentException("Tarea inválida");
         }
         tareas.add(tarea);
@@ -35,5 +35,9 @@ public class GestorDeTareas {
             }
         }
         return pendientes;
+    }
+
+    public List<Tarea> loadAll(){
+        return new ArrayList<>(tareas);
     }
 }

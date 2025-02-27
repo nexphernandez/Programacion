@@ -78,4 +78,9 @@ class TareaTest {
         tarea.setCompletada(true);
         Assertions.assertTrue(tarea.isCompletada());
     }
+
+    @Test
+    void verificarDescripcionTest(){
+        Assertions.assertEquals(tarea.getDescripcion(), tarea.getDescripcion());
+    }
 }
