@@ -1,4 +1,5 @@
 package es.test.tres;
+import java.util.Objects;
 
 public class Tarea {
 
@@ -29,5 +30,17 @@ public class Tarea {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Tarea)) {
+            return false;
+        }
+        Tarea tarea = (Tarea) o;
+        return Objects.equals(id, tarea.getId());
     }
 }

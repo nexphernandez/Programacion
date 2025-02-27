@@ -62,7 +62,7 @@ class ProductoTest {
     @Test
     void productoCosntructorIllegalArgumentExection3Test() {
         try {
-            Producto producto2 = new Producto(-1,null, 20); 
+            Producto producto2 = new Producto(1,null, 20); 
             Assertions.fail("Se ha producido un error no controlado");
     
         } catch (Exception e) {
@@ -76,7 +76,7 @@ class ProductoTest {
     @Test
     void productoCosntructorIllegalArgumentExection4Test() {
         try {
-            Producto producto2 = new Producto(-1,"", 20); 
+            Producto producto2 = new Producto(0,"", 20); 
             Assertions.fail("Se ha producido un error no controlado");
     
         } catch (Exception e) {

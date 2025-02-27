@@ -47,8 +47,11 @@ class InventarioTest {
     @Test
     void obtenerProductoPorIdTest() {
         Producto productoNuevo = inventario.obtenerProductoPorId(1);
+        Producto productoNuevo2 = inventario.obtenerProductoPorId(2);
         Assertions.assertNotNull(productoNuevo);
         Assertions.assertEquals(producto1, productoNuevo);
+        Assertions.assertNotEquals(producto1, productoNuevo2);
+        Assertions.assertEquals(producto1.getId(), productoNuevo.getId());
         Assertions.assertEquals(producto1.getNombre(), productoNuevo.getNombre());
         Assertions.assertEquals(producto1.getStock(), productoNuevo.getStock());
     }
