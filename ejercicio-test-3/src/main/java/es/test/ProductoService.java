@@ -26,4 +26,6 @@ public class ProductoService {
     public boolean eliminarProducto(int id) {
         return productoRepository.delete(id);
     }
+
+    
 }

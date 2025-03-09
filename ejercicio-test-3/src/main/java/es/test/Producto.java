@@ -17,24 +17,13 @@ public class Producto {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public double getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     @Override
@@ -47,10 +36,5 @@ public class Producto {
         Producto producto = (Producto) o;
         return id == producto.id;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-    
+ 
 }
