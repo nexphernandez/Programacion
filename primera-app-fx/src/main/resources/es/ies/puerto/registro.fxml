@@ -6,16 +6,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="CENTER" prefHeight="594.0" prefWidth="392.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.RegistroController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-      <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="233.0" promptText="Escribir usuario" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User" />
+      <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir usuario" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
       <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-      <Text fx:id="textFieldPassword1" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Password" />
+      <Text fx:id="textFieldPassword1" strokeType="OUTSIDE" strokeWidth="0.0" text="Repit Password" />
       <PasswordField fx:id="textFieldPassword2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-      <Text fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+      <TextField fx:id="textFieldNombre" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir nombre" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <TextField fx:id="textFieldEmail" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Repit Email" />
+      <TextField fx:id="textFieldEmail2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
+      <Text fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Button fx:id="buttonRegistrar" mnemonicParsing="false" onAction="#onClickRegistrar" text="Button" />
    </children>
 </VBox>
