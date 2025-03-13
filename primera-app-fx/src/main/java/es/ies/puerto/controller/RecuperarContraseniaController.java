@@ -8,10 +8,10 @@ import javafx.scene.text.Text;
 public class RecuperarContraseniaController {
     
     @FXML TextField textFieldEmailRecover;
+    
     @FXML Text textFieldMensajeRecover;
     
     @FXML Button buttonRegistrarEmail;
-
 
     @FXML
     protected void onRecoverButtonClick(){

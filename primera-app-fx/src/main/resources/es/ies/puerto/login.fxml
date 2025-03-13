@@ -14,11 +14,12 @@
       </VBox.margin>
    </Button>
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User:" />
-   <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" />
+   <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" promptText="Insertar Usuario" />
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-   <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" />
-    <Button alignment="TOP_CENTER" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="163.0" text="Aceptar" textAlignment="CENTER" />
-   <Text fx:id="textFieldMensaje" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese datos" />
+   <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Insertar contraseña" />
+    <Button fx:id="ButtonAceptar" alignment="TOP_CENTER" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="163.0" text="Aceptar" textAlignment="CENTER" />
+   <Text fx:id="textFieldMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
+   <Button fx:id="RecoverPassWordButton" mnemonicParsing="false" onAction="#onRecoverButtonClick" text="Recover PassWord" />
    <padding>
       <Insets top="20.0" />
    </padding>

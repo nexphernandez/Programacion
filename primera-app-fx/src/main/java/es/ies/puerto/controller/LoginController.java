@@ -23,6 +23,12 @@ public class LoginController {
     private PasswordField textFieldPassword;
 
     @FXML
+    private Button ButtonAceptar;
+
+    @FXML
+    private Button RecoverPassWordButton;
+
+    @FXML
     private Text textFieldMensaje;
 
     @FXML
@@ -54,6 +60,20 @@ public class LoginController {
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Pantalla Principal");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void onRecoverButtonClick(){
+        try {
+            Stage stage = (Stage) RecoverPassWordButton.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("recuperarConstrasenia.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Pantalla Recover");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
