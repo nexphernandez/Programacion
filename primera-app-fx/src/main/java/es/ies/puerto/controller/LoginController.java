@@ -59,7 +59,7 @@ public class LoginController {
             Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            stage.setTitle("Pantalla Principal");
+            stage.setTitle("Pantalla Registro");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
