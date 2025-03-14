@@ -1,16 +1,21 @@
 package es.ies.puerto.controller;
 
+import es.ies.puerto.PrincipalApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class RegistroController {
     
     @FXML TextField textFieldUsuario;
     @FXML Text textMensaje;
     @FXML Button buttonRegistrar;
+    @FXML Button atrasButton;
     @FXML PasswordField textFieldPassword;
     @FXML PasswordField textFieldPassword2;
     @FXML TextField textFieldNombre;
@@ -45,5 +50,18 @@ public class RegistroController {
         }
 
         textMensaje.setText("¡Usuario registrado!");
+    }
+    @FXML
+    protected void volverAtrasClick(){
+        try {
+            Stage stage = (Stage) atrasButton.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Pantalla inicio");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

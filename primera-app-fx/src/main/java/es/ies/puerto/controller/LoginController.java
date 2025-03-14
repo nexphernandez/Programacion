@@ -50,7 +50,16 @@ public class LoginController {
             return;
         } 
 
-        textFieldMensaje.setText("Usuario validado correctamente");
+        try {
+            Stage stage = (Stage) ButtonAceptar.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Pantalla user");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
