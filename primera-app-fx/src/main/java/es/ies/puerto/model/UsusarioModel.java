@@ -1,12 +1,19 @@
 package es.ies.puerto.model;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @author nexphernandez
  */
 public class UsusarioModel {
+
+    @JsonProperty("nombreUsuario")
     private String nombreUsuario;
+    @JsonProperty("password")
     private String password;
+    @JsonProperty("nombre")
     private String nombre;
+    @JsonProperty("email")
     private String email;
 
     /**

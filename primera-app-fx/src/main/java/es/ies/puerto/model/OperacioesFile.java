@@ -3,8 +3,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,7 +32,7 @@ public class OperacioesFile {
     final String pathCsv = "src/main/resources/usuarios.csv";
     final String pathXml = "src/main/resources/usuarios.xml";
     final String pathJson = "src/main/resources/usuarios.json";
-    Set<UsusarioModel> ususarioModels;
+    Set<UsusarioModel> usuarioModels;
     File csvFile;
     File xmlFile;
     File jsonFile;
@@ -56,10 +58,18 @@ public class OperacioesFile {
         } catch (Exception e) {
             e.getStackTrace();
         }
-        ususarioModels = new HashSet<>(csvToSet());
+        usuarioModels = new HashSet<>(csvToSet());
         objectMapper = new ObjectMapper();
     }
 
+
+    public boolean add(String nombreUsuario, String password,String nombre,String email) {
+        UsusarioModel ususario = new UsusarioModel(nombreUsuario, password, nombre, email);
+        usuarioModels.add(ususario);
+        setToXml(usuarioModels);
+        setToJson();
+        return true;
+    }
     /**
      * Funcion que pasa los datos de un archivo json a set
      * @return set con la informacion del archivo/ set vacio
@@ -80,7 +90,7 @@ public class OperacioesFile {
      */
     public boolean setToJson() {
         try {
-            objectMapper.writeValue(jsonFile, ususarioModels);
+            objectMapper.writeValue(jsonFile, usuarioModels);
             return true;
         } catch (Exception e) {
             e.getStackTrace();
@@ -109,13 +119,13 @@ public class OperacioesFile {
                     String email = elemento.getElementsByTagName("email").item(0)
                             .getTextContent();
                     UsusarioModel ususarioModel = new UsusarioModel(nombreUsuario,password,nombre,email);
-                    ususarioModels.add(ususarioModel);
+                    usuarioModels.add(ususarioModel);
                 }
             }
         } catch (Exception e) {
             return new HashSet<>();
         }
-        return ususarioModels;
+        return usuarioModels;
     }
 
     /**
@@ -183,6 +193,23 @@ public class OperacioesFile {
             return new HashSet<>();
         }
         return lista;
+    }
+
+    /**
+     * Funcion que pasa la informacion del set a un csv
+     * @return true/false
+     */
+    public boolean setToCsv(){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathCsv))) {
+            for (UsusarioModel usuarioBuscar : usuarioModels) {
+                writer.write(usuarioBuscar.toString());
+                writer.newLine();                
+            }
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
