@@ -1,7 +1,7 @@
 package es.ies.puerto.controller;
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.model.OperacioesFile;
+import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,7 +23,16 @@ public class RegistroController {
     @FXML TextField textFieldEmail;
     @FXML TextField textFieldEmail2;
 
-    OperacioesFile operacioesFile;
+    OperacionesFile operacionesFile;
+
+    public RegistroController(){
+        System.out.println("first");
+    }
+
+    @FXML
+    public void initialize(){
+        operacionesFile = new OperacionesFile();
+    }
 
     @FXML
     protected void onClickRegistrar() {
@@ -53,7 +62,7 @@ public class RegistroController {
         }
 
         textMensaje.setText("¡Usuario registrado!");
-        operacioesFile.add(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
+        operacionesFile.add(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
     }
     @FXML
     protected void volverAtrasClick(){

@@ -28,7 +28,7 @@ import org.w3c.dom.NodeList;
  * @version 1.0.0
  */
 
-public class OperacioesFile {
+public class OperacionesFile {
     final String pathCsv = "src/main/resources/usuarios.csv";
     final String pathXml = "src/main/resources/usuarios.xml";
     final String pathJson = "src/main/resources/usuarios.json";
@@ -41,7 +41,7 @@ public class OperacioesFile {
     /**
      * Cosntructor vacio
      */
-    public OperacioesFile() {
+    public OperacionesFile() {
         try {
             csvFile = new File(pathCsv);
             xmlFile = new File(pathXml);
@@ -66,6 +66,7 @@ public class OperacioesFile {
     public boolean add(String nombreUsuario, String password,String nombre,String email) {
         UsusarioModel ususario = new UsusarioModel(nombreUsuario, password, nombre, email);
         usuarioModels.add(ususario);
+        setToCsv();
         setToXml(usuarioModels);
         setToJson();
         return true;
@@ -79,7 +80,6 @@ public class OperacioesFile {
             return objectMapper.readValue(jsonFile, new TypeReference<Set<UsusarioModel>>() {
             });
         } catch (Exception e) {
-            e.getStackTrace();
             return new HashSet<>();
         }
     }
@@ -93,7 +93,7 @@ public class OperacioesFile {
             objectMapper.writeValue(jsonFile, usuarioModels);
             return true;
         } catch (Exception e) {
-            e.getStackTrace();
+            e.printStackTrace();
             return false;
         }
     }
@@ -159,7 +159,7 @@ public class OperacioesFile {
                 usuario.appendChild(nombre);
 
 
-                Element email = doc.createElement("fechaLanzamiento");
+                Element email = doc.createElement("email");
                 email.appendChild(doc.createTextNode(usuarioModel.getEmail()));
                 usuario.appendChild(email);
             }
