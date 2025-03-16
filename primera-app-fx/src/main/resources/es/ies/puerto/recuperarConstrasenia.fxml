@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="371.0" prefWidth="435.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.RecuperarContraseniaController">
+<VBox alignment="TOP_CENTER" prefHeight="371.0" prefWidth="435.0" spacing="10.0" stylesheets="@../../../css/estilos.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.RecuperarContraseniaController">
    <children>
       <Button fx:id="atrasButton2" mnemonicParsing="false" onAction="#atrasClick" text="Atras">
          <VBox.margin>
