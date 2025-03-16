@@ -1,5 +1,8 @@
 package es.ies.puerto.controller;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
@@ -11,6 +14,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class RegistroController {
     
     @FXML TextField textFieldUsuario;
@@ -41,6 +48,11 @@ public class RegistroController {
             return;
         }
 
+        if (operacionesFile.verificarUsuario(textFieldUsuario.getText())) {
+            textMensaje.setText("El usuario ya esta registrado.");
+            return;
+        }
+
         if (textFieldPassword == null || textFieldPassword.getText().isEmpty()|| textFieldPassword2 == null || textFieldPassword2.getText().isEmpty()) {
             textMensaje.setText("¡El password no puede ser nulo o vacio!");
             return;
@@ -53,6 +65,21 @@ public class RegistroController {
 
         if (textFieldEmail == null || textFieldEmail.getText().isEmpty()|| textFieldEmail2 == null || textFieldEmail2.getText().isEmpty()) {
             textMensaje.setText("¡El email no puede ser nulo o vacio!");
+            return;
+        }
+
+        String patron = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        Pattern p = Pattern.compile(patron);
+        Matcher m = p.matcher(textFieldEmail.getText());
+
+        if (!m.matches()) {
+            textMensaje.setText("El correo electrónico no es válido.");
+            return;
+        }
+
+        if (operacionesFile.verificarEmail(textFieldEmail2.getText())) {
+            textMensaje.setText("El email ya esta registrado.");
             return;
         }
 

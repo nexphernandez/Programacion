@@ -8,7 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class PerfilUsuarioController{
     @FXML TextField textFieldUser;
     @FXML TextField textFieldPasswordUser;

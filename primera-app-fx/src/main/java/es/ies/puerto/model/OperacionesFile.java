@@ -62,7 +62,14 @@ public class OperacionesFile {
         objectMapper = new ObjectMapper();
     }
 
-
+    /**
+     * Funcion  ue aniade un usuario a los archivos
+     * @param nombreUsuario a aniadir
+     * @param password a aniadir
+     * @param nombre a aniadir
+     * @param email a aniadir
+     * @return true/false
+     */
     public boolean add(String nombreUsuario, String password,String nombre,String email) {
         UsuarioModel usuario = new UsuarioModel(nombreUsuario, password, nombre, email);
         if (usuarioModels.contains(usuario)) {
@@ -229,5 +236,33 @@ public class OperacionesFile {
             }
         }
         return null;
+    }
+
+    /**
+     * Funcion que verifica si existe el emai asi en los ficheros
+     * @param email a verificar
+     * @return true/false
+     */
+    public boolean verificarEmail(String email){
+        for (UsuarioModel usuarioModelBuscar : usuarioModels) {
+            if (usuarioModelBuscar.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Funcion que verifica si existe el usuario en los ficheros
+     * @param nombreUsuario a verificar
+     * @return true/false
+     */
+    public boolean verificarUsuario(String nombreUsuario){
+        for (UsuarioModel usuarioModelBuscar : usuarioModels) {
+            if (usuarioModelBuscar.getNombreUsuario().equals(nombreUsuario)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

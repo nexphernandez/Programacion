@@ -86,7 +86,7 @@ public class UsuarioModel {
             return false;
         }
         UsuarioModel ususarioModel = (UsuarioModel) o;
-        return Objects.equals(email, ususarioModel.email) && Objects.equals(nombreUsuario, ususarioModel.nombreUsuario);
+        return Objects.equals(email, ususarioModel.email);
     }
 
     /**
@@ -94,7 +94,7 @@ public class UsuarioModel {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(email, nombreUsuario);
+        return Objects.hash(email);
     }
 
     /**
