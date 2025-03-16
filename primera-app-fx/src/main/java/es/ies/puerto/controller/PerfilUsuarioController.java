@@ -1,6 +1,7 @@
 package es.ies.puerto.controller;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.model.UsuarioModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,12 +9,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class PerfilUsuarioController {
+public class PerfilUsuarioController{
     @FXML TextField textFieldUser;
     @FXML TextField textFieldPasswordUser;
     @FXML TextField textFieldNombre2;
     @FXML TextField textFieldEmail3;
     @FXML Button buttonVolverAtras;
+
+    UsuarioModel usuarioModel;
+
+   
+    public PerfilUsuarioController(){
+        System.out.println("Second");
+    }
+
+    public void setUsuario(UsuarioModel usuario){
+        this.usuarioModel = usuario;
+        cargarDatos();
+    }
+
+    private void cargarDatos(){
+        if (usuarioModel != null ) {
+            textFieldUser.setText(usuarioModel.getNombreUsuario());
+            textFieldPasswordUser.setText(usuarioModel.getPassword());
+            textFieldNombre2.setText(usuarioModel.getNombre());
+            textFieldEmail3.setText(usuarioModel.getEmail());
+        }
+    }
 
     @FXML
     protected void onClickVolver(){

@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><usuarios><usuario><nombreUsuario>a</nombreUsuario><password>a</password><nombre>a</nombre><email>a</email></usuario></usuarios>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<usuarios>
+    <usuario>
+        <nombreUsuario>a</nombreUsuario>
+        <password>a</password>
+        <nombre>a</nombre>
+        <email>a</email>
+    </usuario>
+</usuarios>

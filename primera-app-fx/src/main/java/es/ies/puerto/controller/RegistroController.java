@@ -61,8 +61,12 @@ public class RegistroController {
             return;
         }
 
-        textMensaje.setText("¡Usuario registrado!");
-        operacionesFile.add(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
+        boolean registro = operacionesFile.add(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
+        if (registro == false) {
+            textMensaje.setText("Ya hay una cuenta con ese usuario e email");
+        } else{
+            textMensaje.setText("¡Usuario registrado!");
+        }
     }
     @FXML
     protected void volverAtrasClick(){

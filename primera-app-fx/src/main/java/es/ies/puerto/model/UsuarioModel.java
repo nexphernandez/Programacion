@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @author nexphernandez
  */
-public class UsusarioModel {
+public class UsuarioModel {
 
     @JsonProperty("nombreUsuario")
     private String nombreUsuario;
@@ -19,13 +19,13 @@ public class UsusarioModel {
     /**
      * Constructor vacio
      */
-    public UsusarioModel(){}
+    public UsuarioModel(){}
 
     /**
      * Constructor con el atributo principal de la clase
      * @param email de usuario
      */
-    public UsusarioModel(String email){
+    public UsuarioModel(String email){
         this.email = email;
     }
 
@@ -36,7 +36,7 @@ public class UsusarioModel {
      * @param nombre nombre del usuario
      * @param email email del usuario
      */
-    public UsusarioModel(String nombreUsuario, String password,String nombre,String email ){
+    public UsuarioModel(String nombreUsuario, String password,String nombre,String email ){
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.nombre = nombre;
@@ -82,11 +82,11 @@ public class UsusarioModel {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof UsusarioModel)) {
+        if (!(o instanceof UsuarioModel)) {
             return false;
         }
-        UsusarioModel ususarioModel = (UsusarioModel) o;
-        return Objects.equals(email, ususarioModel.email);
+        UsuarioModel ususarioModel = (UsuarioModel) o;
+        return Objects.equals(email, ususarioModel.email) && Objects.equals(nombreUsuario, ususarioModel.nombreUsuario);
     }
 
     /**
@@ -94,7 +94,7 @@ public class UsusarioModel {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(email);
+        return Objects.hash(email, nombreUsuario);
     }
 
     /**

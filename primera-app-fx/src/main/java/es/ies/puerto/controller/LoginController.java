@@ -1,11 +1,12 @@
 package es.ies.puerto.controller;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.model.OperacionesFile;
+import es.ies.puerto.model.UsuarioModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -13,8 +14,6 @@ import javafx.stage.Stage;
 
 public class LoginController {
     
-    private final String usuario = "pokemon";
-    private final String password = "pokemon";
 
     @FXML
     private TextField textFieldUsuario;
@@ -34,7 +33,22 @@ public class LoginController {
     @FXML
     private Button buttonResgistrar;
 
-    
+    private OperacionesFile operacionesFile;
+
+    private UsuarioModel user;
+
+    public void setUsuario(UsuarioModel usuario){
+        this.user = usuario;
+    }
+
+    public UsuarioModel getUsuario(){
+        return user;
+    }
+
+    @FXML
+    void initialize(){
+        operacionesFile = new OperacionesFile();
+    }
 
     @FXML
     protected void onLoginButtonClick() {
@@ -44,45 +58,46 @@ public class LoginController {
                 textFieldMensaje.setText("Credenciales null o vacias");
                 return;
         }
+        
+        user = operacionesFile.findUsuario(textFieldUsuario.getText(), textFieldPassword.getText());
 
-        if (!textFieldUsuario.getText().equals(usuario) || !textFieldPassword.getText().equals(password)) {
+        if (user == null) {
             textFieldMensaje.setText("Credenciales invalidas");
             return;
         } 
 
+        
         try {
+            FXMLLoader loader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
+            Scene scene = new Scene(loader.load(), 820, 640);
+    
+            // Obtener el controlador de la nueva escena
+            PerfilUsuarioController perfilController = loader.getController();
+            perfilController.setUsuario(user);
+    
             Stage stage = (Stage) ButtonAceptar.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            stage.setTitle("Pantalla user");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    @FXML
+    protected void openRegistrarClick() {
+        cambiarDeEscena("registro.fxml", "Pantalla Registro");
+    }
 
     @FXML
-    protected void openRegistrarClick(){
+    protected void onRecoverButtonClick() {
+        cambiarDeEscena("recuperarConstrasenia.fxml", "Pantalla Recuperar Contraseña");
+    }
+
+    private void cambiarDeEscena(String fxml, String titulo) {
         try {
             Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(fxml));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            stage.setTitle("Pantalla Registro");
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    protected void onRecoverButtonClick(){
-        try {
-            Stage stage = (Stage) RecoverPassWordButton.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("recuperarConstrasenia.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            stage.setTitle("Pantalla Recover");
+            stage.setTitle(titulo);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
