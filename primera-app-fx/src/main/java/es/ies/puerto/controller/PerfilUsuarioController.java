@@ -1,6 +1,7 @@
 package es.ies.puerto.controller;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.UsuarioModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +13,21 @@ import javafx.stage.Stage;
  * @author nexphernandez
  * @version 1.0.0
  */
-public class PerfilUsuarioController{
-    @FXML TextField textFieldUser;
-    @FXML TextField textFieldPasswordUser;
-    @FXML TextField textFieldNombre2;
-    @FXML TextField textFieldEmail3;
-    @FXML Button buttonVolverAtras;
+public class PerfilUsuarioController extends AbstractController{
+    @FXML 
+    private TextField textFieldUser;
+
+    @FXML 
+    private TextField textFieldPasswordUser;
+
+    @FXML 
+    private TextField textFieldNombre2;
+    
+    @FXML 
+    private TextField textFieldEmail3;
+    
+    @FXML 
+    private Button buttonVolverAtras;
 
     UsuarioModel usuarioModel;
 

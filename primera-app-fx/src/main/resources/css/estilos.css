@@ -11,3 +11,9 @@
     -fx-font-size: 16px;
     -fx-fill: white;
 }
+
+.combo-box {
+    -fx-background-color: grey;
+    -fx-text-fill: grey;
+    
+}

@@ -2,6 +2,7 @@ package es.ies.puerto.controller;
 
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,14 +16,19 @@ import javafx.stage.Stage;
  * @version 1.0.0
  */
 
-public class RecuperarContraseniaController {
+public class RecuperarContraseniaController  extends AbstractController{
     
-    @FXML TextField textFieldEmailRecover;
+    @FXML 
+    private TextField textFieldEmailRecover;
     
-    @FXML Text textFieldMensajeRecover;
+    @FXML 
+    private Text textFieldMensajeRecover;
     
-    @FXML Button buttonRegistrarEmail;
-    @FXML Button atrasButton2;
+    @FXML 
+    private Button buttonRegistrarEmail;
+    
+    @FXML 
+    private Button atrasButton2;
 
     OperacionesFile operacionesFile;
 

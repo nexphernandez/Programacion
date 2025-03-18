@@ -1,12 +1,18 @@
 package es.ies.puerto.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import es.ies.puerto.model.UsuarioModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -15,8 +21,16 @@ import javafx.stage.Stage;
  * @author nexphernandez
  * @version 1.0.0
  */
-public class LoginController {
+public class LoginController extends AbstractController{
     
+    @FXML
+    private Text textUsuario;
+
+    @FXML
+    private Text textContrasenia;
+
+    @FXML
+    private ComboBox comboIdioma;
 
     @FXML
     private TextField textFieldUsuario;
@@ -48,9 +62,24 @@ public class LoginController {
         return user;
     }
 
+
+    
     @FXML
     void initialize(){
         operacionesFile = new OperacionesFile();
+        List <String> listaIdiomas = new ArrayList<>();
+        listaIdiomas.add("es");
+        listaIdiomas.add("en");
+        listaIdiomas.add("fr");
+        comboIdioma.getItems().addAll(listaIdiomas);
+        
+    }
+
+    @FXML
+    protected void cambiarIdioma(){
+        setPropertiesIdiomas(loadIdioma("idioma", comboIdioma.getValue().toString()));
+        textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
+        textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
     }
 
     @FXML
@@ -71,11 +100,13 @@ public class LoginController {
 
         
         try {
-            FXMLLoader loader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
-            Scene scene = new Scene(loader.load(), 820, 640);
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
     
-            // Obtener el controlador de la nueva escena
-            PerfilUsuarioController perfilController = loader.getController();
+            RegistroController registroController = fxmlLoader.getController();
+            registroController.setPropertiesIdiomas(this.getPropertiesIdiomas());
+
+            PerfilUsuarioController perfilController = fxmlLoader.getController();
             perfilController.setUsuario(user);
     
             Stage stage = (Stage) ButtonAceptar.getScene().getWindow();

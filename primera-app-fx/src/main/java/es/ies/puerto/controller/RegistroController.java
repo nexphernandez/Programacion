@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,17 +19,52 @@ import javafx.stage.Stage;
  * @author nexphernandez
  * @version 1.0.0
  */
-public class RegistroController {
+public class RegistroController extends AbstractController{
     
-    @FXML TextField textFieldUsuario;
-    @FXML Text textMensaje;
-    @FXML Button buttonRegistrar;
-    @FXML Button atrasButton;
-    @FXML PasswordField textFieldPassword;
-    @FXML PasswordField textFieldPassword2;
-    @FXML TextField textFieldNombre;
-    @FXML TextField textFieldEmail;
-    @FXML TextField textFieldEmail2;
+    @FXML
+    private Text textUsuario;
+
+    @FXML
+    private Text textContrasenia;
+
+    @FXML
+    private Text textContrasenia2;
+
+    @FXML
+    private Text textNombre;
+
+    @FXML
+    private Text textEmail;
+
+    @FXML
+    private Text textEmail2;
+
+    @FXML 
+    private TextField textFieldUsuario;
+    
+    @FXML 
+    private Text textMensaje;
+   
+    @FXML 
+    private Button buttonRegistrar;
+    
+    @FXML 
+    private Button atrasButton;
+    
+    @FXML 
+    private PasswordField textFieldPassword;
+   
+    @FXML 
+    private PasswordField textFieldPassword2;
+    
+    @FXML 
+    private TextField textFieldNombre;
+   
+    @FXML 
+    private TextField textFieldEmail;
+   
+    @FXML 
+    private TextField textFieldEmail2;
 
     OperacionesFile operacionesFile;
 
@@ -39,6 +75,12 @@ public class RegistroController {
     @FXML
     public void initialize(){
         operacionesFile = new OperacionesFile();
+        textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
+        textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
+        textContrasenia2.setText(getPropertiesIdiomas().getProperty("textContrasenia2"));
+        textNombre.setText(getPropertiesIdiomas().getProperty("textNombre"));
+        textEmail.setText(getPropertiesIdiomas().getProperty("textEmail"));
+        textEmail2.setText(getPropertiesIdiomas().getProperty("textEmail2"));
     }
 
     @FXML
