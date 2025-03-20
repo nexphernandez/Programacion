@@ -1,10 +1,12 @@
 package es.ies.puerto.controller;
 
+import java.io.ObjectInputFilter.Config;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.config.ConfigManager;
 import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import es.ies.puerto.model.UsuarioModel;
@@ -77,8 +79,10 @@ public class LoginController extends AbstractController{
 
     @FXML
     protected void cambiarIdioma(){
-        setPropertiesIdiomas(loadIdioma("idioma", comboIdioma.getValue().toString()));
-        textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
+        //setPropertiesIdiomas(loadIdioma("idioma", comboIdioma.getValue().toString()));
+        //textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
+        String textUsuarioStr = ConfigManager.ConfigProperties.getProperty("textUsuario");
+        textUsuario.setText(textUsuarioStr);
         textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
     }
 
@@ -102,10 +106,7 @@ public class LoginController extends AbstractController{
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-    
-            RegistroController registroController = fxmlLoader.getController();
-            registroController.setPropertiesIdiomas(this.getPropertiesIdiomas());
-
+            
             PerfilUsuarioController perfilController = fxmlLoader.getController();
             perfilController.setUsuario(user);
     
@@ -118,24 +119,37 @@ public class LoginController extends AbstractController{
     }
     @FXML
     protected void openRegistrarClick() {
-        cambiarDeEscena("registro.fxml", "Pantalla Registro");
-    }
-
-    @FXML
-    protected void onRecoverButtonClick() {
-        cambiarDeEscena("recuperarConstrasenia.fxml", "Pantalla Recuperar Contraseña");
-    }
-
-    private void cambiarDeEscena(String fxml, String titulo) {
         try {
-            Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(fxml));
+            
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            stage.setTitle(titulo);
+
+            RegistroController registroController = fxmlLoader.getController();
+            //registroController.setPropertiesIdiomas(this.getPropertiesIdiomas());
+            //registroController.postConstructor();
+
+            Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
+            stage.setTitle("Pantalla Registro");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    protected void onRecoverButtonClick() {
+        try {
+            Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("recuperarConstrasenia.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            stage.setTitle("Pantalla Recuperar Contraseña");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

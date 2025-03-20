@@ -14,17 +14,17 @@
             <Insets right="300.0" top="20.0" />
          </VBox.margin>
       </Button>
-      <Text fx:id="textUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="User" />
+      <Text fx:id="textUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
       <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir usuario" />
-      <Text fx:id="textContrasenia" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <Text fx:id="textContrasenia" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
       <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
-      <Text fx:id="textContrasenia2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repit Password" />
+      <Text fx:id="textContrasenia2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Contraseña" />
       <PasswordField fx:id="textFieldPassword2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir password" />
       <Text fx:id="textNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
       <TextField fx:id="textFieldNombre" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir nombre" />
       <Text fx:id="textEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
       <TextField fx:id="textFieldEmail" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
-      <Text fx:id="textEmail2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repit Email" />
+      <Text fx:id="textEmail2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Email" />
       <TextField fx:id="textFieldEmail2" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir email" />
       <Text fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Button fx:id="buttonRegistrar" mnemonicParsing="false" onAction="#onClickRegistrar" text="registrar">

@@ -74,6 +74,10 @@ public class RegistroController extends AbstractController{
 
     @FXML
     public void initialize(){
+        
+    }
+
+    public void postConstructor(){
         operacionesFile = new OperacionesFile();
         textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
         textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
