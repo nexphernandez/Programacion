@@ -54,16 +54,26 @@ public class LoginController extends AbstractController{
 
     private UsuarioModel user;
 
+    /**
+     * Funcion para setear el usuario
+     * @param usuario a setear
+     */
     public void setUsuario(UsuarioModel usuario){
         this.user = usuario;
     }
 
+    /**
+     * Metodo para obtener el usuario
+     * @return usuario buscado
+     */
     public UsuarioModel getUsuario(){
         return user;
     }
 
 
-    
+    /**
+     * Funcion que se inicializa nada mas arrancar la app
+     */
     @FXML
     void initialize(){
         operacionesFile = new OperacionesFile();
@@ -77,6 +87,9 @@ public class LoginController extends AbstractController{
         
     }
 
+    /**
+     * Funcion para seleccionar el idioma
+     */
     @FXML
     protected void seleccionarIdiomaClick() {
         String idioma = comboIdioma.getValue().toString();
@@ -85,11 +98,18 @@ public class LoginController extends AbstractController{
 
     }
 
+    /**
+     * Funcion para cargar el idioma
+     * @param idioma a cargar
+     */
     private void cargarIdioma(String idioma) {
         String path = pathFichero+ficheroStr+idioma+".properties";
         ConfigManager.ConfigProperties.setPath(path);
     }
 
+    /**
+     * Funcion para pasar a la pantalla donde se muestra la informacion del usuario
+     */
     @FXML
     protected void onLoginButtonClick() {
 
@@ -121,6 +141,10 @@ public class LoginController extends AbstractController{
             e.printStackTrace();
         }
     }
+  
+    /**
+     * Funcion para pasar a la pantalla donde puede registrar un usuario
+     */
     @FXML
     protected void openRegistrarClick() {
         try {
@@ -136,6 +160,9 @@ public class LoginController extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para pasar a la pantalla un usuario puede recuperar la cuenta
+     */
     @FXML
     protected void onRecoverButtonClick() {
         try {

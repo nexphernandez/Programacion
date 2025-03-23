@@ -3,7 +3,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class ConfigManager {
 
     public static class ConfigProperties {
@@ -22,6 +25,10 @@ public class ConfigManager {
             return properties.getProperty(key);
         }
 
+        /**
+         * Funcion para obtener el path
+         * @param rutaPath
+         */
         public static void setPath(String rutaPath) {
             File file = new File(rutaPath);
 

@@ -68,19 +68,25 @@ public class RegistroController extends AbstractController{
 
     OperacionesFile operacionesFile;
 
-    public RegistroController(){
-        System.out.println("first");
-    }
 
+    /**
+     * Funcion que se inicializa nada mas arrancar la app
+     */
     @FXML
     public void initialize(){
         cambiarIdioma();
     }
 
+    /**
+     * Metodo para inicializar operaciones file
+     */
     public void postConstructor(){
         operacionesFile = new OperacionesFile();
     }
 
+    /**
+     * Funcion para registrar un usuario
+     */
     @FXML
     protected void onClickRegistrar() {
         if (textFieldUsuario == null || textFieldUsuario.getText().isEmpty()) {
@@ -135,6 +141,10 @@ public class RegistroController extends AbstractController{
             textMensaje.setText("¡Usuario registrado!");
         }
     }
+
+    /**
+     * Funcion para volver a la pagina anterior
+     */
     @FXML
     protected void volverAtrasClick(){
         try {

@@ -35,15 +35,24 @@ public class RecuperarContraseniaController  extends AbstractController{
 
     OperacionesFile operacionesFile;
 
+    /**
+     * Funcion que se inicializa nada mas arrancar la app
+     */
     @FXML
     public void initialize(){
         cambiarIdioma();
     }
 
+    /**
+     * Constructor vacio
+     */
     public RecuperarContraseniaController(){
         operacionesFile = new OperacionesFile();
     }
 
+    /**
+     * Funcion para recuperar la contraseña
+     */
     @FXML
     protected void onRecoverButtonClick(){
         if (textFieldEmailRecover == null || textFieldEmailRecover.getText().isEmpty()) {
@@ -58,6 +67,9 @@ public class RecuperarContraseniaController  extends AbstractController{
         textFieldMensajeRecover.setText("¡Mensaje enviado!, revisa el email");
     }
 
+    /**
+     * Funcion para volver a la pagina anterior
+     */
     @FXML
     protected void atrasClick(){
         try {

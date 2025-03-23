@@ -31,20 +31,27 @@ public class PerfilUsuarioController extends AbstractController{
 
     UsuarioModel usuarioModel;
 
+    /**
+     * Funcion que se inicializa nada mas arrancar la app
+     */
     @FXML
     public void initialize(){
         cambiarIdioma();
     }
-   
-    public PerfilUsuarioController(){
-        System.out.println("Second");
-    }
 
+
+    /**
+     * Funcion para indicar de que usuario se cargan los datos
+     * @param usuario a cargar los datos
+     */
     public void setUsuario(UsuarioModel usuario){
         this.usuarioModel = usuario;
         cargarDatos();
     }
 
+    /**
+     * Funcion para cargar los datos del usuario
+     */
     private void cargarDatos(){
         if (usuarioModel != null ) {
             textFieldUser.setText(usuarioModel.getNombreUsuario());
@@ -54,6 +61,9 @@ public class PerfilUsuarioController extends AbstractController{
         }
     }
 
+    /**
+     * Funcion para volver a la pagina anterior
+     */
     @FXML
     protected void onClickVolver(){
         try {

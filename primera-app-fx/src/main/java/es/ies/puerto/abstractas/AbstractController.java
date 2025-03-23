@@ -4,7 +4,10 @@ import es.ies.puerto.config.ConfigManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public class AbstractController {
 
     @FXML
@@ -22,6 +25,9 @@ public class AbstractController {
     @FXML
     public Text textEmail2;
 
+    /**
+     * Funcion para cambiar de idioma
+     */
     public void cambiarIdioma() {
         Platform.runLater(()->{
 
