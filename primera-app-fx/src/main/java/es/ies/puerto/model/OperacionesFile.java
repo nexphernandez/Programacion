@@ -231,7 +231,7 @@ public class OperacionesFile {
      */
     public UsuarioModel findUsuario(String nombreUsuario, String contrasenia){
         for (UsuarioModel usuarioModelBuscar : usuarioModels) {
-            if (usuarioModelBuscar.getNombre().equals(nombreUsuario) && usuarioModelBuscar.getPassword().equals(contrasenia)) {
+            if (usuarioModelBuscar.getNombreUsuario().equals(nombreUsuario) && usuarioModelBuscar.getPassword().equals(contrasenia)) {
                 return usuarioModelBuscar;
             }
         }
