@@ -2,7 +2,7 @@ package es.ies.puerto.controller;
 
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.controller.abstractas.AbstractController;
+import es.ies.puerto.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

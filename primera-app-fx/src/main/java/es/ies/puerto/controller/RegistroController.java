@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.controller.abstractas.AbstractController;
+import es.ies.puerto.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,17 +74,11 @@ public class RegistroController extends AbstractController{
 
     @FXML
     public void initialize(){
-        
+        cambiarIdioma();
     }
 
     public void postConstructor(){
         operacionesFile = new OperacionesFile();
-        textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
-        textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
-        textContrasenia2.setText(getPropertiesIdiomas().getProperty("textContrasenia2"));
-        textNombre.setText(getPropertiesIdiomas().getProperty("textNombre"));
-        textEmail.setText(getPropertiesIdiomas().getProperty("textEmail"));
-        textEmail2.setText(getPropertiesIdiomas().getProperty("textEmail2"));
     }
 
     @FXML

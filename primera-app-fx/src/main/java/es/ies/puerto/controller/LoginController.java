@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Properties;
 
 import es.ies.puerto.PrincipalApplication;
+import es.ies.puerto.abstractas.AbstractController;
 import es.ies.puerto.config.ConfigManager;
-import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import es.ies.puerto.model.UsuarioModel;
 import javafx.fxml.FXML;
@@ -25,11 +25,8 @@ import javafx.stage.Stage;
  */
 public class LoginController extends AbstractController{
     
-    @FXML
-    private Text textUsuario;
-
-    @FXML
-    private Text textContrasenia;
+    private final String pathFichero="src/main/resources/";
+    private final String ficheroStr= "idioma-";
 
     @FXML
     private ComboBox comboIdioma;
@@ -74,16 +71,21 @@ public class LoginController extends AbstractController{
         listaIdiomas.add("en");
         listaIdiomas.add("fr");
         comboIdioma.getItems().addAll(listaIdiomas);
+        cambiarIdioma();
         
     }
 
     @FXML
-    protected void cambiarIdioma(){
-        //setPropertiesIdiomas(loadIdioma("idioma", comboIdioma.getValue().toString()));
-        //textUsuario.setText(getPropertiesIdiomas().getProperty("textUsuario"));
-        String textUsuarioStr = ConfigManager.ConfigProperties.getProperty("textUsuario");
-        textUsuario.setText(textUsuarioStr);
-        textContrasenia.setText(getPropertiesIdiomas().getProperty("textContrasenia"));
+    protected void seleccionarIdiomaClick() {
+        String idioma = comboIdioma.getValue().toString();
+        cargarIdioma(idioma);
+        cambiarIdioma();
+
+    }
+
+    private void cargarIdioma(String idioma) {
+        String path = pathFichero+ficheroStr+idioma+".properties";
+        ConfigManager.ConfigProperties.setPath(path);
     }
 
     @FXML
@@ -123,11 +125,6 @@ public class LoginController extends AbstractController{
             
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-
-            RegistroController registroController = fxmlLoader.getController();
-            //registroController.setPropertiesIdiomas(this.getPropertiesIdiomas());
-            //registroController.postConstructor();
-
             Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
             stage.setTitle("Pantalla Registro");
             stage.setScene(scene);
