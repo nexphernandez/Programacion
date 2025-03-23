@@ -28,6 +28,7 @@ public class LoginController extends AbstractController{
     private final String pathFichero="src/main/resources/";
     private final String ficheroStr= "idioma-";
 
+
     @FXML
     private ComboBox comboIdioma;
 
@@ -71,6 +72,7 @@ public class LoginController extends AbstractController{
         listaIdiomas.add("en");
         listaIdiomas.add("fr");
         comboIdioma.getItems().addAll(listaIdiomas);
+        cargarIdioma("es");
         cambiarIdioma();
         
     }

@@ -31,6 +31,10 @@ public class PerfilUsuarioController extends AbstractController{
 
     UsuarioModel usuarioModel;
 
+    @FXML
+    public void initialize(){
+        cambiarIdioma();
+    }
    
     public PerfilUsuarioController(){
         System.out.println("Second");
