@@ -1,6 +1,9 @@
 package es.ies.puerto.controller;
 
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
@@ -64,6 +67,17 @@ public class RecuperarContraseniaController  extends AbstractController{
             textFieldMensajeRecover.setText("El correo electrónico no es válido o no esta registrado.");
             return;
         }
+
+        String patron = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        Pattern p = Pattern.compile(patron);
+        Matcher m = p.matcher(textFieldEmailRecover.getText());
+
+        if (!m.matches()) {
+            textFieldMensajeRecover.setText("El correo electrónico no es válido.");
+            return;
+        }
+
         textFieldMensajeRecover.setText("¡Mensaje enviado!, revisa el email");
     }
 
