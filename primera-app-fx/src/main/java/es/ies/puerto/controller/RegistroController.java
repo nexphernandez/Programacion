@@ -78,9 +78,9 @@ public class RegistroController extends AbstractController{
     }
 
     /**
-     * Metodo para inicializar operaciones file
+     * Cosntructor vacio
      */
-    public void postConstructor(){
+    public RegistroController(){
         operacionesFile = new OperacionesFile();
     }
 

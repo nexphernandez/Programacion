@@ -1,7 +1,6 @@
 package es.ies.puerto.abstractas;
 
 import es.ies.puerto.config.ConfigManager;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 /**
@@ -29,20 +28,21 @@ public class AbstractController {
      * Funcion para cambiar de idioma
      */
     public void cambiarIdioma() {
-        Platform.runLater(()->{
-
+        if (!(textUsuario == null)) {
             textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
             textContrasenia.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia"));
-        
-        
+        }
+        if (!(textContrasenia2 == null)) {
             textContrasenia2.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia2"));
-        
+        }
+        if (!(textNombre == null)) {
             textNombre.setText(ConfigManager.ConfigProperties.getProperty("textNombre"));    
-        
-            textEmail.setText(ConfigManager.ConfigProperties.getProperty("textEmail"));
-       
+        }
+        if (!(textEmail == null)) {
+             textEmail.setText(ConfigManager.ConfigProperties.getProperty("textEmail"));
+        }
+        if (!(textEmail2 == null)) {
             textEmail2.setText(ConfigManager.ConfigProperties.getProperty("textEmail2"));
-        });
-        
+        }        
     }
 }
