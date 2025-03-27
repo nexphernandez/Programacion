@@ -43,7 +43,7 @@ public class RecuperarContraseniaController  extends AbstractController{
      */
     @FXML
     public void initialize(){
-        cambiarIdioma();
+        cambiarIdiomaRecuperar();
     }
 
     /**

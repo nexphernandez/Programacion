@@ -29,26 +29,7 @@ public class LoginController extends AbstractController{
     private final String ficheroStr= "idioma-";
 
 
-    @FXML
-    private ComboBox comboIdioma;
-
-    @FXML
-    private TextField textFieldUsuario;
     
-    @FXML
-    private PasswordField textFieldPassword;
-
-    @FXML
-    private Button ButtonAceptar;
-
-    @FXML
-    private Button RecoverPassWordButton;
-
-    @FXML
-    private Text textFieldMensaje;
-
-    @FXML
-    private Button buttonResgistrar;
 
     private OperacionesFile operacionesFile;
 
@@ -83,7 +64,8 @@ public class LoginController extends AbstractController{
         listaIdiomas.add("fr");
         comboIdioma.getItems().addAll(listaIdiomas);
         cargarIdioma("es");
-        cambiarIdioma();
+        cambiarIdiomaLogin();
+        buttonIdiomaLogin();
         
     }
 
@@ -94,7 +76,7 @@ public class LoginController extends AbstractController{
     protected void seleccionarIdiomaClick() {
         String idioma = comboIdioma.getValue().toString();
         cargarIdioma(idioma);
-        cambiarIdioma();
+        cambiarIdiomaLogin();
 
     }
 

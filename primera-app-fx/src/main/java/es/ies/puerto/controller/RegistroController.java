@@ -74,7 +74,7 @@ public class RegistroController extends AbstractController{
      */
     @FXML
     public void initialize(){
-        cambiarIdioma();
+        cambiarIdiomaRegistro();
     }
 
     /**

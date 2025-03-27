@@ -36,7 +36,7 @@ public class PerfilUsuarioController extends AbstractController{
      */
     @FXML
     public void initialize(){
-        cambiarIdioma();
+        cambiarIdiomaPerfil();
     }
 
 
