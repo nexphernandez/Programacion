@@ -32,9 +32,7 @@ public class RecuperarContraseniaController  extends AbstractController{
     
     @FXML 
     private Button buttonRegistrarEmail;
-    
-    @FXML 
-    private Button atrasButton2;
+
 
     OperacionesFile operacionesFile;
 
@@ -44,6 +42,7 @@ public class RecuperarContraseniaController  extends AbstractController{
     @FXML
     public void initialize(){
         cambiarIdiomaRecuperar();
+        buttonIdiomaAtras();
     }
 
     /**
@@ -87,7 +86,7 @@ public class RecuperarContraseniaController  extends AbstractController{
     @FXML
     protected void atrasClick(){
         try {
-            Stage stage = (Stage) atrasButton2.getScene().getWindow();
+            Stage stage = (Stage) buttonVolverAtras.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Pantalla inicio");

@@ -49,6 +49,9 @@ public class AbstractController {
     @FXML
     public Button buttonResgistrar;
 
+    @FXML 
+    public Button buttonVolverAtras;
+
     public void cambiarIdiomaRecuperar(){
         textEmail.setText(ConfigManager.ConfigProperties.getProperty("textEmail"));
     }
@@ -78,5 +81,9 @@ public class AbstractController {
         buttonResgistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonResgistrar"));
         RecoverPassWordButton.setText(ConfigManager.ConfigProperties.getProperty("RecoverPassWordButton"));
         ButtonAceptar.setText(ConfigManager.ConfigProperties.getProperty("ButtonAceptar"));
+    }
+
+    public void buttonIdiomaAtras(){
+        buttonVolverAtras.setText(ConfigManager.ConfigProperties.getProperty("buttonVolverAtras"));
     }
 }

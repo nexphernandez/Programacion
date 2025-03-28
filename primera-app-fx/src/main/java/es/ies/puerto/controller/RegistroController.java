@@ -48,8 +48,7 @@ public class RegistroController extends AbstractController{
     @FXML 
     private Button buttonRegistrar;
     
-    @FXML 
-    private Button atrasButton;
+
     
     @FXML 
     private PasswordField textFieldPassword;
@@ -75,6 +74,7 @@ public class RegistroController extends AbstractController{
     @FXML
     public void initialize(){
         cambiarIdiomaRegistro();
+        buttonIdiomaAtras();
     }
 
     /**
@@ -148,7 +148,7 @@ public class RegistroController extends AbstractController{
     @FXML
     protected void volverAtrasClick(){
         try {
-            Stage stage = (Stage) atrasButton.getScene().getWindow();
+            Stage stage = (Stage) buttonVolverAtras.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Pantalla inicio");
