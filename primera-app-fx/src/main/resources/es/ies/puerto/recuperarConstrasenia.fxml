@@ -19,7 +19,7 @@
          </VBox.margin>
       </Text>
       <TextField fx:id="textFieldEmailRecover" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Escribir Email" />
-      <Button fx:id="buttonRegistrarEmail" mnemonicParsing="false" onAction="#onRecoverButtonClick" text="Aceptar" />
+      <Button fx:id="ButtonAceptar" mnemonicParsing="false" onAction="#onRecoverButtonClick" text="Aceptar" />
       <Text fx:id="textFieldMensajeRecover" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </VBox>

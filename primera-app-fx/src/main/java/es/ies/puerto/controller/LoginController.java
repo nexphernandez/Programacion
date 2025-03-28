@@ -22,9 +22,6 @@ public class LoginController extends AbstractController{
     private final String pathFichero="src/main/resources/";
     private final String ficheroStr= "idioma-";
 
-
-    
-
     private OperacionesFile operacionesFile;
 
     private UsuarioModel user;
@@ -128,7 +125,7 @@ public class LoginController extends AbstractController{
             
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("registro.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
-            Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
+            Stage stage = (Stage) buttonRegistrar.getScene().getWindow();
             stage.setTitle("Pantalla Registro");
             stage.setScene(scene);
             stage.show();
@@ -143,7 +140,7 @@ public class LoginController extends AbstractController{
     @FXML
     protected void onRecoverButtonClick() {
         try {
-            Stage stage = (Stage) buttonResgistrar.getScene().getWindow();
+            Stage stage = (Stage) buttonRegistrar.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("recuperarConstrasenia.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 820, 640);
             stage.setTitle("Pantalla Recuperar Contraseña");

@@ -47,7 +47,7 @@ public class AbstractController {
     public Text textFieldMensaje;
 
     @FXML
-    public Button buttonResgistrar;
+    public Button buttonRegistrar;
 
     @FXML 
     public Button buttonVolverAtras;
@@ -75,11 +75,12 @@ public class AbstractController {
         cambiarIdiomaPerfil();
         textContrasenia2.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia2"));
         textEmail2.setText(ConfigManager.ConfigProperties.getProperty("textEmail2"));
+        buttonRegistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonRegistrar"));
     }  
 
     public void buttonIdiomaLogin(){
         comboIdioma.setPromptText(ConfigManager.ConfigProperties.getProperty("comboIdioma"));
-        buttonResgistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonResgistrar"));
+        buttonRegistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonRegistrar"));
         RecoverPassWordButton.setText(ConfigManager.ConfigProperties.getProperty("RecoverPassWordButton"));
         ButtonAceptar.setText(ConfigManager.ConfigProperties.getProperty("ButtonAceptar"));
     }

@@ -20,35 +20,12 @@ import javafx.stage.Stage;
  * @version 1.0.0
  */
 public class RegistroController extends AbstractController{
-    
-    @FXML
-    private Text textUsuario;
-
-    @FXML
-    private Text textContrasenia;
-
-    @FXML
-    private Text textContrasenia2;
-
-    @FXML
-    private Text textNombre;
-
-    @FXML
-    private Text textEmail;
-
-    @FXML
-    private Text textEmail2;
 
     @FXML 
     private TextField textFieldUsuario;
     
     @FXML 
     private Text textMensaje;
-   
-    @FXML 
-    private Button buttonRegistrar;
-    
-
     
     @FXML 
     private PasswordField textFieldPassword;
@@ -74,7 +51,6 @@ public class RegistroController extends AbstractController{
     @FXML
     public void initialize(){
         cambiarIdiomaRegistro();
-
     }
 
     /**

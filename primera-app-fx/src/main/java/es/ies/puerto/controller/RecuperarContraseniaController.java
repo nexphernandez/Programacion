@@ -27,12 +27,6 @@ public class RecuperarContraseniaController  extends AbstractController{
     @FXML 
     private Text textFieldMensajeRecover;
 
-    @FXML 
-    private Text textEmail;
-    
-    @FXML 
-    private Button buttonRegistrarEmail;
-
 
     OperacionesFile operacionesFile;
 
