@@ -74,6 +74,9 @@ public class AbstractController {
     }  
 
     public void buttonIdiomaLogin(){
-        comboIdioma.setValue(ConfigManager.ConfigProperties.getProperty("comboIdioma"));
+        comboIdioma.setPromptText(ConfigManager.ConfigProperties.getProperty("comboIdioma"));
+        buttonResgistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonResgistrar"));
+        RecoverPassWordButton.setText(ConfigManager.ConfigProperties.getProperty("RecoverPassWordButton"));
+        ButtonAceptar.setText(ConfigManager.ConfigProperties.getProperty("ButtonAceptar"));
     }
 }

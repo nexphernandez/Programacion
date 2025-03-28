@@ -77,6 +77,7 @@ public class LoginController extends AbstractController{
         String idioma = comboIdioma.getValue().toString();
         cargarIdioma(idioma);
         cambiarIdiomaLogin();
+        buttonIdiomaLogin();
 
     }
 
