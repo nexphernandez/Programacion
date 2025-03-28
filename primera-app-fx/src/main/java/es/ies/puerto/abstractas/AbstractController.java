@@ -52,12 +52,15 @@ public class AbstractController {
     @FXML 
     public Button buttonVolverAtras;
 
+    /**
+     * Funcion para cambiar el idioma del recuperar
+     */
     public void cambiarIdiomaRecuperar(){
         textEmail.setText(ConfigManager.ConfigProperties.getProperty("textEmail"));
         buttonVolverAtras.setText(ConfigManager.ConfigProperties.getProperty("buttonVolverAtras"));
     }
     /**
-     * Funcion para cambiar de idioma
+     * Funcion para cambiar el idioma del login
      */
     public void cambiarIdiomaLogin() {
         textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
@@ -65,12 +68,18 @@ public class AbstractController {
             
     }
 
+    /**
+     * Funcion para cambiar el idioma del perfil
+     */
     public void cambiarIdiomaPerfil() {
         cambiarIdiomaLogin();
         cambiarIdiomaRecuperar();
         textNombre.setText(ConfigManager.ConfigProperties.getProperty("textNombre"));
     }
 
+    /**
+     * Funcion para cambiar el idioma del registro
+     */
     public void cambiarIdiomaRegistro(){
         cambiarIdiomaPerfil();
         textContrasenia2.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia2"));
@@ -78,6 +87,9 @@ public class AbstractController {
         buttonRegistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonRegistrar"));
     }  
 
+    /**
+     * Funcion para cambiar el idioma de los botones del login
+     */
     public void buttonIdiomaLogin(){
         comboIdioma.setPromptText(ConfigManager.ConfigProperties.getProperty("comboIdioma"));
         buttonRegistrar.setText(ConfigManager.ConfigProperties.getProperty("buttonRegistrar"));
