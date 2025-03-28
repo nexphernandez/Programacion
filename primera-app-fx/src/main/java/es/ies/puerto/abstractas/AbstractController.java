@@ -54,6 +54,7 @@ public class AbstractController {
 
     public void cambiarIdiomaRecuperar(){
         textEmail.setText(ConfigManager.ConfigProperties.getProperty("textEmail"));
+        buttonVolverAtras.setText(ConfigManager.ConfigProperties.getProperty("buttonVolverAtras"));
     }
     /**
      * Funcion para cambiar de idioma
@@ -83,7 +84,4 @@ public class AbstractController {
         ButtonAceptar.setText(ConfigManager.ConfigProperties.getProperty("ButtonAceptar"));
     }
 
-    public void buttonIdiomaAtras(){
-        buttonVolverAtras.setText(ConfigManager.ConfigProperties.getProperty("buttonVolverAtras"));
-    }
 }

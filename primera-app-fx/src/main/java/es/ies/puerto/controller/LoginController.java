@@ -60,6 +60,7 @@ public class LoginController extends AbstractController{
         cargarIdioma("es");
         cambiarIdiomaLogin();
         buttonIdiomaLogin();
+
         
     }
 
@@ -72,7 +73,6 @@ public class LoginController extends AbstractController{
         cargarIdioma(idioma);
         cambiarIdiomaLogin();
         buttonIdiomaLogin();
-
     }
 
     /**

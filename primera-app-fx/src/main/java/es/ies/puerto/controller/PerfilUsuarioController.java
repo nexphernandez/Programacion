@@ -25,9 +25,6 @@ public class PerfilUsuarioController extends AbstractController{
     
     @FXML 
     private TextField textFieldEmail3;
-    
-    @FXML 
-    private Button buttonVolverAtras;
 
     UsuarioModel usuarioModel;
 
