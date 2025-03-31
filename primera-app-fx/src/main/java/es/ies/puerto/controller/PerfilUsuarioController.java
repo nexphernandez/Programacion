@@ -1,8 +1,8 @@
 package es.ies.puerto.controller;
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.abstractas.AbstractController;
-import es.ies.puerto.model.UsuarioModel;
+import es.ies.puerto.controller.abstractas.AbstractController;
+import es.ies.puerto.model.UsuarioEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,7 +26,7 @@ public class PerfilUsuarioController extends AbstractController{
     @FXML 
     private TextField textFieldEmail3;
 
-    UsuarioModel usuarioModel;
+    UsuarioEntity usuarioModel;
 
     /**
      * Funcion que se inicializa nada mas arrancar la app
@@ -41,7 +41,7 @@ public class PerfilUsuarioController extends AbstractController{
      * Funcion para indicar de que usuario se cargan los datos
      * @param usuario a cargar los datos
      */
-    public void setUsuario(UsuarioModel usuario){
+    public void setUsuario(UsuarioEntity usuario){
         this.usuarioModel = usuario;
         cargarDatos();
     }

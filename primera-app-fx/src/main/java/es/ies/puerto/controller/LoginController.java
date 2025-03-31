@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.abstractas.AbstractController;
 import es.ies.puerto.config.ConfigManager;
+import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
-import es.ies.puerto.model.UsuarioModel;
+import es.ies.puerto.model.UsuarioEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,13 +24,13 @@ public class LoginController extends AbstractController{
 
     private OperacionesFile operacionesFile;
 
-    private UsuarioModel user;
+    private UsuarioEntity user;
 
     /**
      * Funcion para setear el usuario
      * @param usuario a setear
      */
-    public void setUsuario(UsuarioModel usuario){
+    public void setUsuario(UsuarioEntity usuario){
         this.user = usuario;
     }
 
@@ -38,7 +38,7 @@ public class LoginController extends AbstractController{
      * Metodo para obtener el usuario
      * @return usuario buscado
      */
-    public UsuarioModel getUsuario(){
+    public UsuarioEntity getUsuario(){
         return user;
     }
 

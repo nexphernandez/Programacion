@@ -34,6 +34,10 @@ public abstract class Conexion {
         pathBD = unPathBD;
     }
 
+    /**
+     * get del pathBD
+     * @return pathBD
+     */
     public String getPathBD(){
         return this.pathBD;
     }
@@ -47,5 +51,28 @@ public abstract class Conexion {
             e.printStackTrace();
         }
         return this.connection;
+    }
+
+    /**
+     * Funcion que abre la conexion a la bbdd
+     * @return conexion con la bbdd
+     * @throws SQLException
+     */
+    public Connection conectar() throws SQLException {
+        if (connection == null) {
+            connection = DriverManager.getConnection("jdbc:sqlite:" + pathBD);
+        }
+        return connection;
+    }
+
+    /**
+     * Funcion que cierra la conexion de bbdd
+     * @throws SQLException
+     */
+    public void cerrar() throws SQLException {
+       if (connection != null || !connection.isClosed()) {
+        connection.close();
+        connection = null;
+       }
     }
 }

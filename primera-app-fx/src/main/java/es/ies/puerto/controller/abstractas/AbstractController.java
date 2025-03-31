@@ -1,4 +1,4 @@
-package es.ies.puerto.abstractas;
+package es.ies.puerto.controller.abstractas;
 
 import es.ies.puerto.config.ConfigManager;
 import javafx.fxml.FXML;

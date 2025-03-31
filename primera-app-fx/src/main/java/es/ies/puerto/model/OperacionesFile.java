@@ -32,7 +32,7 @@ public class OperacionesFile {
     final String pathCsv = "src/main/resources/usuarios.csv";
     final String pathXml = "src/main/resources/usuarios.xml";
     final String pathJson = "src/main/resources/usuarios.json";
-    Set<UsuarioModel> usuarioModels;
+    Set<UsuarioEntity> usuarioModels;
     File csvFile;
     File xmlFile;
     File jsonFile;
@@ -71,7 +71,7 @@ public class OperacionesFile {
      * @return true/false
      */
     public boolean add(String nombreUsuario, String password,String nombre,String email) {
-        UsuarioModel usuario = new UsuarioModel(nombreUsuario, password, nombre, email);
+        UsuarioEntity usuario = new UsuarioEntity(nombreUsuario, password, nombre, email);
         if (usuarioModels.contains(usuario)) {
             return false;
         }
@@ -87,9 +87,9 @@ public class OperacionesFile {
      * Funcion que pasa los datos de un archivo json a set
      * @return set con la informacion del archivo/ set vacio
      */
-    public Set<UsuarioModel> jsonToSet() {
+    public Set<UsuarioEntity> jsonToSet() {
         try {
-            return objectMapper.readValue(jsonFile, new TypeReference<Set<UsuarioModel>>() {
+            return objectMapper.readValue(jsonFile, new TypeReference<Set<UsuarioEntity>>() {
             });
         } catch (Exception e) {
             return new HashSet<>();
@@ -115,7 +115,7 @@ public class OperacionesFile {
      * Funcion que pasa la informacion de un archivo xml a un Set
      * @return set con la informacion
      */
-    public Set<UsuarioModel> xmlToSet() {
+    public Set<UsuarioEntity> xmlToSet() {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -130,7 +130,7 @@ public class OperacionesFile {
                     String nombre = elemento.getElementsByTagName("nombre").item(0).getTextContent();
                     String email = elemento.getElementsByTagName("email").item(0)
                             .getTextContent();
-                    UsuarioModel usuarioModel = new UsuarioModel(nombreUsuario,password,nombre,email);
+                    UsuarioEntity usuarioModel = new UsuarioEntity(nombreUsuario,password,nombre,email);
                     usuarioModels.add(usuarioModel);
                 }
             }
@@ -145,7 +145,7 @@ public class OperacionesFile {
      * @param usuarios set a aniadir
      * @return true/false
      */
-    public boolean setToXml(Set<UsuarioModel> usarios) {
+    public boolean setToXml(Set<UsuarioEntity> usarios) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -154,7 +154,7 @@ public class OperacionesFile {
             Element root = doc.createElement("usuarios");
             doc.appendChild(root);
 
-            for (UsuarioModel usuarioModel : usarios) {
+            for (UsuarioEntity usuarioModel : usarios) {
                 Element usuario = doc.createElement("usuario");
                 root.appendChild(usuario);
                 
@@ -192,13 +192,13 @@ public class OperacionesFile {
      * Funcion que pasa la informacion del csv a un Set
      * @return Set con la informacion
      */
-    public Set<UsuarioModel> csvToSet() {
-        Set<UsuarioModel> lista = new HashSet<>();
+    public Set<UsuarioEntity> csvToSet() {
+        Set<UsuarioEntity> lista = new HashSet<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] array = line.split(",");
-                UsuarioModel ususario = new UsuarioModel((array[0]), array[1], array[2], array[3]);
+                UsuarioEntity ususario = new UsuarioEntity((array[0]), array[1], array[2], array[3]);
                 lista.add(ususario);
             }
         } catch (IOException e) {
@@ -213,7 +213,7 @@ public class OperacionesFile {
      */
     public boolean setToCsv(){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(pathCsv))) {
-            for (UsuarioModel usuarioBuscar : usuarioModels) {
+            for (UsuarioEntity usuarioBuscar : usuarioModels) {
                 writer.write(usuarioBuscar.toString());
                 writer.newLine();                
             }
@@ -229,8 +229,8 @@ public class OperacionesFile {
      * @param nombreUsuario a buscar
      * @return usuario bucado/null
      */
-    public UsuarioModel findUsuario(String nombreUsuario, String contrasenia){
-        for (UsuarioModel usuarioModelBuscar : usuarioModels) {
+    public UsuarioEntity findUsuario(String nombreUsuario, String contrasenia){
+        for (UsuarioEntity usuarioModelBuscar : usuarioModels) {
             if (usuarioModelBuscar.getNombreUsuario().equals(nombreUsuario) && usuarioModelBuscar.getPassword().equals(contrasenia)) {
                 return usuarioModelBuscar;
             }
@@ -244,7 +244,7 @@ public class OperacionesFile {
      * @return true/false
      */
     public boolean verificarEmail(String email){
-        for (UsuarioModel usuarioModelBuscar : usuarioModels) {
+        for (UsuarioEntity usuarioModelBuscar : usuarioModels) {
             if (usuarioModelBuscar.getEmail().equals(email)) {
                 return true;
             }
@@ -258,7 +258,7 @@ public class OperacionesFile {
      * @return true/false
      */
     public boolean verificarUsuario(String nombreUsuario){
-        for (UsuarioModel usuarioModelBuscar : usuarioModels) {
+        for (UsuarioEntity usuarioModelBuscar : usuarioModels) {
             if (usuarioModelBuscar.getNombreUsuario().equals(nombreUsuario)) {
                 return true;
             }
