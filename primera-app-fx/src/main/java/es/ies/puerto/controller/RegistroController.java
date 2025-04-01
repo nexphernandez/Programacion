@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.controller.abstractas.AbstractController;
-import es.ies.puerto.model.OperacionesFile;
+import es.ies.puerto.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -41,7 +41,7 @@ public class RegistroController extends AbstractController{
     @FXML 
     private TextField textFieldEmail2;
 
-    OperacionesFile operacionesFile;
+    UsuarioServiceModel usuarioServiceModel;
 
 
     /**
@@ -56,7 +56,7 @@ public class RegistroController extends AbstractController{
      * Cosntructor vacio
      */
     public RegistroController(){
-        operacionesFile = new OperacionesFile();
+        usuarioServiceModel = new UsuarioServiceModel();
     }
 
     /**
@@ -69,7 +69,7 @@ public class RegistroController extends AbstractController{
             return;
         }
 
-        if (operacionesFile.verificarUsuario(textFieldUsuario.getText())) {
+        if (usuarioServiceModel.verificarUsuario(textFieldUsuario.getText())) {
             textMensaje.setText("El usuario ya esta registrado.");
             return;
         }
@@ -99,7 +99,7 @@ public class RegistroController extends AbstractController{
             return;
         }
 
-        if (operacionesFile.verificarEmail(textFieldEmail2.getText())) {
+        if (usuarioServiceModel.verificarEmail(textFieldEmail2.getText())) {
             textMensaje.setText("El email ya esta registrado.");
             return;
         }
@@ -109,7 +109,7 @@ public class RegistroController extends AbstractController{
             return;
         }
 
-        boolean registro = operacionesFile.add(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
+        boolean registro = usuarioServiceModel.agregarUsuario(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
         if (registro == false) {
             textMensaje.setText("Ya hay una cuenta con ese usuario e email");
         } else{

@@ -6,7 +6,8 @@ import java.util.regex.Pattern;
 
 import es.ies.puerto.PrincipalApplication;
 import es.ies.puerto.controller.abstractas.AbstractController;
-import es.ies.puerto.model.OperacionesFile;
+import es.ies.puerto.model.UsuarioEntity;
+import es.ies.puerto.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,8 +28,7 @@ public class RecuperarContraseniaController  extends AbstractController{
     @FXML 
     private Text textFieldMensajeRecover;
 
-
-    OperacionesFile operacionesFile;
+    UsuarioServiceModel usuarioServiceModel;
 
     /**
      * Funcion que se inicializa nada mas arrancar la app
@@ -43,7 +43,7 @@ public class RecuperarContraseniaController  extends AbstractController{
      * Constructor vacio
      */
     public RecuperarContraseniaController(){
-        operacionesFile = new OperacionesFile();
+        usuarioServiceModel = new UsuarioServiceModel();
     }
 
     /**
@@ -56,7 +56,7 @@ public class RecuperarContraseniaController  extends AbstractController{
             return;
         }
 
-        if (!operacionesFile.verificarEmail(textFieldEmailRecover.getText())) {
+        if (!usuarioServiceModel.verificarEmail(textFieldEmailRecover.getText())) {
             textFieldMensajeRecover.setText("El correo electrónico no es válido o no esta registrado.");
             return;
         }

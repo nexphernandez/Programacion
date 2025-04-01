@@ -63,7 +63,7 @@ public class UsuarioServiceModel extends Conexion{
      * @return usuario buscado
      */
     public UsuarioEntity obtenerUsuarioPorNombreUsuario(String nombreUsuario, String contrasenia){
-        String sql = "Select email from usuario " + "where nombreUsuario ='" + nombreUsuario + 
+        String sql = "Select * from usuario " + "where nombreUsuario ='" + nombreUsuario + 
                     "' and contrasenia = '" + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = obtenerListaUsuarios(sql);
         if (usuarios.isEmpty()) {
@@ -79,7 +79,7 @@ public class UsuarioServiceModel extends Conexion{
      * @return usuario buscado
      */
     public UsuarioEntity obtenerUsuarioPorEmail(String email,String contrasenia){
-        String sql = "Select email from usuario " + "where email='" + email + "' and contrasenia = '" + contrasenia + "'";
+        String sql = "Select * from usuario " + "where email='" + email + "' and contrasenia = '" + contrasenia + "'";
         ArrayList<UsuarioEntity> usuarios = obtenerListaUsuarios(sql);
         if (usuarios.isEmpty()) {
             return null;
@@ -92,16 +92,30 @@ public class UsuarioServiceModel extends Conexion{
      * @param usuario a agregar
      */
     public void agregarUsuario(UsuarioEntity usuario){
+        agregarUsuario(usuario.getNombreUsuario(), usuario.getPassword(), usuario.getNombre(), usuario.getEmail());
+    }
+
+
+     /**
+     * Funcion que agrega un usuario sabiendo sus propiedades a la base de datos
+     * @param nombreUsuario a agregar
+     * @param contrasenia a agregar
+     * @param nombre a agregar
+     * @param email a agregar
+     */
+    public boolean agregarUsuario(String nombreUsuario,String contrasenia,String nombre, String email){
         try {
             PreparedStatement sentencia = getconnection().prepareStatement("INSERT INTO usuario "+
                 "(nombreUsuario, contrasenia, nombre, email) values (?,?,?,?)");
-            sentencia.setString(1, usuario.getNombreUsuario());
-            sentencia.setString(2, usuario.getPassword());
-            sentencia.setString(3, usuario.getNombre());
-            sentencia.setString(4, usuario.getEmail());
+            sentencia.setString(1, nombreUsuario);
+            sentencia.setString(2, contrasenia);
+            sentencia.setString(3, nombre);
+            sentencia.setString(4, email);
             sentencia.execute();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }finally{            
             cerrar();
         }
@@ -144,5 +158,32 @@ public class UsuarioServiceModel extends Conexion{
         }
         agregarUsuario(usuario);
         return true;
+    }
+    /**
+     * Funcion que verifica si existe el usuario en los ficheros
+     * @param nombreUsuario a verificar
+     * @return true/false
+     */
+    public boolean verificarUsuario(String nombreUsuario){
+        for (UsuarioEntity usuarioModelBuscar : usuarioModels) {
+            if (usuarioModelBuscar.getNombreUsuario().equals(nombreUsuario)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Funcion que verifica si existe el emai asi en los ficheros
+     * @param email a verificar
+     * @return true/false
+     */
+    public boolean verificarEmail(String email){
+        for (UsuarioEntity usuarioModelBuscar : usuarioModels) {
+            if (usuarioModelBuscar.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
