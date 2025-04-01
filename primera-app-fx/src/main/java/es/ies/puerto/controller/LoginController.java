@@ -8,6 +8,7 @@ import es.ies.puerto.config.ConfigManager;
 import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.OperacionesFile;
 import es.ies.puerto.model.UsuarioEntity;
+import es.ies.puerto.model.UsuarioServiceModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ public class LoginController extends AbstractController{
     private final String ficheroStr= "idioma-";
 
     private OperacionesFile operacionesFile;
+    private UsuarioServiceModel usuarioServiceModel;
 
     private UsuarioEntity user;
 
@@ -48,6 +50,7 @@ public class LoginController extends AbstractController{
      */
     @FXML
     void initialize(){
+        usuarioServiceModel = new UsuarioServiceModel();
         operacionesFile = new OperacionesFile();
         List <String> listaIdiomas = new ArrayList<>();
         listaIdiomas.add("es");
@@ -93,13 +96,13 @@ public class LoginController extends AbstractController{
                 return;
         }
         
-        user = operacionesFile.findUsuario(textFieldUsuario.getText(), textFieldPassword.getText());
-
+        user = usuarioServiceModel.obtenerUsuarioPorNombreUsuario(textFieldUsuario.getText(), textFieldPassword.getText());
+        
         if (user == null) {
             textFieldMensaje.setText("Credenciales invalidas");
             return;
         } 
-
+        
         
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("perfil.fxml"));

@@ -9,32 +9,25 @@ import java.sql.SQLException;
  * @version 1.0.0
  */
 public abstract class Conexion {
-    private String pathBD;
+
     private Connection connection;
+    private final String pathBD ="src/main/resources/usuario.db";
 
     /**
      * Constructor vacio
      */
-    public Conexion(){}
-
-    /**
-     * Constructor con el path de conexion
-     * @param unPathBD ruta de la bbdd
-     */
-    public Conexion (String unPathBD){
+    public Conexion(){
         try {
-            if (unPathBD == null || unPathBD.isEmpty()) {
+            if (pathBD == null || pathBD.isEmpty()) {
                 throw new SQLException("El fichero es nulo o vacio ");
             }
-            File file = new File(unPathBD);
+            File file = new File(pathBD);
             if (!file.exists()) {
-                throw new SQLException("No existe la base de datos: " + unPathBD);
+                throw new SQLException("No existe la base de datos: " + pathBD);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        pathBD = unPathBD;
     }
 
     /**
