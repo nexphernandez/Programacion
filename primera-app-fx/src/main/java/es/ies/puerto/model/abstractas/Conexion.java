@@ -4,7 +4,10 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * @author nexphernandez
+ * @version 1.0.0
+ */
 public abstract class Conexion {
     private String pathBD;
     private Connection connection;
@@ -42,6 +45,10 @@ public abstract class Conexion {
         return this.pathBD;
     }
 
+    /**
+     * Funcion que abre la conexion a la bbdd
+     * @return conexion con la bbdd
+     */
     public Connection getconnection(){
         try {
             if (connection == null) {
@@ -54,25 +61,17 @@ public abstract class Conexion {
     }
 
     /**
-     * Funcion que abre la conexion a la bbdd
-     * @return conexion con la bbdd
-     * @throws SQLException
-     */
-    public Connection conectar() throws SQLException {
-        if (connection == null) {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + pathBD);
-        }
-        return connection;
-    }
-
-    /**
      * Funcion que cierra la conexion de bbdd
      * @throws SQLException
      */
-    public void cerrar() throws SQLException {
-       if (connection != null || !connection.isClosed()) {
-        connection.close();
-        connection = null;
-       }
+    public void cerrar() {
+       try {
+            if (connection != null || !connection.isClosed()) {
+                connection.close();
+                connection = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
