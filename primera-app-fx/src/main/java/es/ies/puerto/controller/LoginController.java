@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.ies.puerto.PrincipalApplication;
-import es.ies.puerto.config.ConfigManager;
 import es.ies.puerto.controller.abstractas.AbstractController;
 import es.ies.puerto.model.UsuarioEntity;
 import es.ies.puerto.model.UsuarioServiceModel;
@@ -19,8 +18,7 @@ import javafx.stage.Stage;
  */
 public class LoginController extends AbstractController{
     
-    private final String pathFichero="src/main/resources/";
-    private final String ficheroStr= "idioma-";
+    
 
     private UsuarioServiceModel usuarioServiceModel;
 
@@ -54,7 +52,7 @@ public class LoginController extends AbstractController{
         listaIdiomas.add("en");
         listaIdiomas.add("fr");
         comboIdioma.getItems().addAll(listaIdiomas);
-        cargarIdioma("es");
+        cargarIdiomaActual();
         cambiarIdiomaLogin();
         buttonIdiomaLogin();
 
@@ -67,19 +65,12 @@ public class LoginController extends AbstractController{
     @FXML
     protected void seleccionarIdiomaClick() {
         String idioma = comboIdioma.getValue().toString();
-        cargarIdioma(idioma);
+        setIdioma(idioma);
+        cargarIdiomaActual();
         cambiarIdiomaLogin();
         buttonIdiomaLogin();
     }
 
-    /**
-     * Funcion para cargar el idioma
-     * @param idioma a cargar
-     */
-    private void cargarIdioma(String idioma) {
-        String path = pathFichero+ficheroStr+idioma+".properties";
-        ConfigManager.ConfigProperties.setPath(path);
-    }
 
     /**
      * Funcion para pasar a la pantalla donde se muestra la informacion del usuario

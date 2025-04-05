@@ -13,6 +13,10 @@ import javafx.scene.text.Text;
  */
 public class AbstractController {
 
+    private final String pathFichero="src/main/resources/";
+    private final String ficheroStr= "idioma-";
+    private static String idiomaActual = "es"; 
+
     @FXML
     public Text textUsuario;
 
@@ -51,6 +55,34 @@ public class AbstractController {
 
     @FXML 
     public Button buttonVolverAtras;
+
+    /**
+     * Funcion para cargar el idioma
+     * @param idioma a cargar
+     */
+    protected void cargarIdiomaActual() {
+        if (idiomaActual == null || idiomaActual.isEmpty()) {
+            idiomaActual = "es"; 
+        }
+        
+        String path = pathFichero+ficheroStr + idiomaActual + ".properties";
+        ConfigManager.ConfigProperties.setPath(path);
+    }
+
+    /**
+     * Método para obtener el idioma actual.
+     */
+    public static String getIdioma() {
+        return idiomaActual;
+    }
+
+    /**
+     * Método para cambiar el idioma.
+     */
+    public static void setIdioma(String idioma) {
+        idiomaActual = idioma;
+    }
+
 
     /**
      * Funcion para cambiar el idioma del recuperar
